@@ -79,12 +79,12 @@
       h2 {
         margin-bottom: 20px;
       }
-      .back{
+      .back {
         @include flexDisplay(flex-start, center, row);
         cursor: pointer;
         margin-bottom: 20px;
-        svg{
-            font-size: 22px;
+        svg {
+          font-size: 22px;
         }
       }
       .note_list_container {
@@ -99,7 +99,6 @@
           .search_box {
             width: 500px;
           }
-        
         }
         ul {
           display: grid;
@@ -108,13 +107,14 @@
           gap: 20px;
           padding-top: 30px;
           li {
-            // box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.128);
             border: 1px solid gainsboro;
             border-radius: 5px;
             padding: 15px;
             height: 150px;
             position: relative;
+            transition: ease-in-out 0.2s;
             &:hover {
+              box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.128);
               .more {
                 background-color: white;
                 border: 1px solid gainsboro;
@@ -166,7 +166,7 @@
     color: white;
     top: 0;
     menu {
-    //   @include flexDisplay(space-between, center, column);
+      //   @include flexDisplay(space-between, center, column);
       height: 100%;
       width: 100%;
       ul {
@@ -174,6 +174,7 @@
         li {
           padding: 0px 10px;
           margin-bottom: 5px;
+          padding-right: 30px;
           a {
             @include flexDisplay(flex-start, center, row);
             font-weight: 500;

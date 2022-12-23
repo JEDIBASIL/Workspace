@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import { AppContainer, AppHome, CreateAccount, Home, HomeContainer, Notes, SignIn, NotePad } from "./view";
+import { AppContainer, AppHome, CreateAccount, Home, HomeContainer, Notes, SignIn, NotePad, Favorite } from "./view";
 import "./assets/style/style.css"
 import { UserAuthProvider } from "./contexts/Auth";
 function App() {
@@ -18,6 +18,7 @@ function App() {
             <Route index  element={<AppHome />}></Route>
             <Route path="/app/notes"  element={<Notes />}></Route>
             <Route path="/app/note-pad"  element={<NotePad />}></Route>
+            <Route path="/app/favorite"  element={<Favorite />}></Route>
             </Route>
           </Routes>
         </Router>

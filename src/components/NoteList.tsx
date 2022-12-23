@@ -1,5 +1,5 @@
 import { Button, TextInput, Menu } from "@mantine/core";
-import {TfiTrash, TfiMore, TfiPencilAlt, TfiSearch, TfiPlus} from "react-icons/tfi"
+import {TfiTrash, TfiMore, TfiPencilAlt, TfiSearch, TfiPlus, TfiHeart} from "react-icons/tfi"
 import { Link as A } from "react-router-dom";
 
 const NoteList: React.FC = () => {
@@ -30,25 +30,8 @@ const NoteList: React.FC = () => {
                                 <Menu.Item icon={<TfiPencilAlt />}>
                                     <h4>Edit</h4>
                                 </Menu.Item>
-                            </Menu.Dropdown>
-                        </Menu>
-                        <h4>How does it feel to be you</h4>
-                        <p>It sucks </p>
-                    </li>
-                    <li>
-                        <Menu withArrow position="bottom-end" shadow="md" width={200}>
-                            <Menu.Target>
-                                <button className="more">
-                                    <TfiMore />
-                                </button>
-                            </Menu.Target>
-
-                            <Menu.Dropdown>
-                                <Menu.Item icon={<TfiTrash />}>
-                                    <h4>Delete </h4>
-                                </Menu.Item>
-                                <Menu.Item icon={<TfiPencilAlt />}>
-                                    <h4>Edit</h4>
+                                <Menu.Item icon={<TfiHeart />}>
+                                    <h4>Favorite</h4>
                                 </Menu.Item>
                             </Menu.Dropdown>
                         </Menu>
@@ -69,6 +52,32 @@ const NoteList: React.FC = () => {
                                 </Menu.Item>
                                 <Menu.Item icon={<TfiPencilAlt />}>
                                     <h4>Edit</h4>
+                                </Menu.Item>
+                                <Menu.Item icon={<TfiHeart />}>
+                                    <h4>Favorite</h4>
+                                </Menu.Item>
+                            </Menu.Dropdown>
+                        </Menu>
+                        <h4>How does it feel to be you</h4>
+                        <p>It sucks </p>
+                    </li>
+                    <li>
+                        <Menu withArrow position="bottom-end" shadow="md" width={200}>
+                            <Menu.Target>
+                                <button className="more">
+                                    <TfiMore />
+                                </button>
+                            </Menu.Target>
+
+                            <Menu.Dropdown>
+                                <Menu.Item icon={<TfiTrash />}>
+                                    <h4>Delete </h4>
+                                </Menu.Item>
+                                <Menu.Item icon={<TfiPencilAlt />}>
+                                    <h4>Edit</h4>
+                                </Menu.Item>
+                                <Menu.Item icon={<TfiHeart />}>
+                                    <h4>Favorite</h4>
                                 </Menu.Item>
                             </Menu.Dropdown>
                         </Menu>

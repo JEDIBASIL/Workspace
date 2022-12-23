@@ -130,6 +130,10 @@
   padding: 15px;
   height: 150px;
   position: relative;
+  transition: ease-in-out 0.2s;
+}
+.app_container .app_content .notes_container .note_list_container ul li:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.128);
 }
 .app_container .app_content .notes_container .note_list_container ul li:hover .more {
   background-color: white;
@@ -187,6 +191,7 @@
 .app_container .side_bar menu ul li {
   padding: 0px 10px;
   margin-bottom: 5px;
+  padding-right: 30px;
 }
 .app_container .side_bar menu ul li a {
   display: flex;
