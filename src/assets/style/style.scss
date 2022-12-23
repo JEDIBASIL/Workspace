@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat Alternates", sans-serif !important;
+  text-decoration: none;
+  list-style: none;
+  color: inherit;
+}
+
+@mixin flexDisplay($justify, $align, $direction) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+.more {
+  @include flexDisplay(center, center, row);
+  border: none;
+  max-width: 30px;
+  min-width: 30px;
+  max-height: 30px;
+  min-height: 30px;
+  border-radius: 50%;
+  font-size: 20px;
+  background-color: transparent;
+  color: var(--color);
+  cursor: pointer;
+  &:hover {
+    background-color: var(--hover);
+  }
+}
+
+.home_container {
+  nav {
+    @include flexDisplay(center, center, row);
+    padding: 20px;
+    .logo {
+      font-size: 25px;
+      @include flexDisplay(center, center, row);
+      background: linear-gradient(50deg, rgb(34, 139, 230), royalblue);
+      color: transparent;
+      -webkit-background-clip: text;
+      font-weight: 500;
+      svg {
+        fill: rgb(34, 139, 230);
+        font-size: 50px;
+      }
+    }
+  }
+  form {
+    background-color: whitesmoke;
+    width: 400px;
+    padding: 20px 10px;
+    border-radius: 8px;
+    margin: 20px auto;
+    border: 1px solid gainsboro;
+    h3 {
+      padding: 10px;
+      margin-bottom: 5px;
+      color: slategray;
+    }
+  }
+  .home_banner {
+    @include flexDisplay(center, center, row);
+    img {
+      width: 500px;
+    }
+  }
+}
+
+.app_container {
+  @include flexDisplay(flex-start, flex-start, row);
+  .app_content {
+    width: 100%;
+    .notes_container {
+      padding: 10px 40px;
+      h2 {
+        margin-bottom: 20px;
+      }
+      .back{
+        @include flexDisplay(flex-start, center, row);
+        cursor: pointer;
+        margin-bottom: 20px;
+        svg{
+            font-size: 22px;
+        }
+      }
+      .note_list_container {
+        height: 100vh;
+        top: 0;
+        width: 100%;
+        .note_search_bar_container {
+          @include flexDisplay(space-between, center, row);
+          gap: 30px;
+          width: 100%;
+          margin: 0px auto;
+          .search_box {
+            width: 500px;
+          }
+        
+        }
+        ul {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          width: 100%;
+          gap: 20px;
+          padding-top: 30px;
+          li {
+            // box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.128);
+            border: 1px solid gainsboro;
+            border-radius: 5px;
+            padding: 15px;
+            height: 150px;
+            position: relative;
+            &:hover {
+              .more {
+                background-color: white;
+                border: 1px solid gainsboro;
+              }
+            }
+            .more {
+              position: absolute;
+              right: 5px;
+              top: -5px;
+            }
+            h4 {
+              color: rgb(55, 55, 55);
+            }
+            p {
+              color: rgb(98, 98, 98);
+            }
+          }
+        }
+      }
+      .note_fields {
+        padding: 10px 10px;
+        width: 100%;
+        input {
+          display: block;
+          width: 100%;
+          font-size: 20px;
+          border: none;
+          outline: none;
+          font-weight: 600;
+        }
+        textarea {
+          display: block;
+          width: 100%;
+          border: none;
+          outline: none;
+          font-size: 16px;
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+  .side_bar {
+    background-color: rgb(27, 35, 39);
+    width: 250px;
+    min-width: 250px;
+    height: 100vh;
+    border-right: 1px solid black;
+    position: sticky;
+    color: white;
+    top: 0;
+    menu {
+    //   @include flexDisplay(space-between, center, column);
+      height: 100%;
+      width: 100%;
+      ul {
+        width: 100%;
+        li {
+          padding: 0px 10px;
+          margin-bottom: 5px;
+          a {
+            @include flexDisplay(flex-start, center, row);
+            font-weight: 500;
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 5px;
+            position: relative;
+            font-size: 15px;
+            &.active:not(.inactive) {
+              border: 1px solid silver;
+              &::before {
+                content: "";
+                position: absolute;
+                width: 8px;
+                height: 70%;
+                background-color: silver;
+                left: -4px;
+                border-radius: 5px;
+              }
+            }
+            svg {
+              margin-right: 10px;
+              font-size: 20px;
+            }
+            &:hover {
+              background-color: rgba(255, 255, 255, 0.175);
+            }
+          }
+        }
+      }
+    }
+  }
+}
