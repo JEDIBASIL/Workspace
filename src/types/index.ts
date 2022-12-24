@@ -7,7 +7,7 @@ type Note =
       favorite: boolean;
       date_created: Date;
     }
-  
+   an
 
 type Action = {
   type: string;

@@ -1,7 +1,6 @@
 import { TfiHome, TfiNotepad, TfiSettings, TfiFaceSmile, TfiUnlink, TfiHeart, TfiPowerOff } from "react-icons/tfi"
 import SideBarList from "./SideBarList";
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
 
 const SideBar: React.FC = () => {
     const location = useLocation()
@@ -12,7 +11,7 @@ const SideBar: React.FC = () => {
                     <ul>
                         <SideBarList className={location.pathname !== "/app" ? "inactive" : "active"} path={"/app"} icon={<TfiHome />} name={"Home"} />
                         <SideBarList className={(location.pathname === "/app/notes" || location.pathname === "/app/note-pad" ) ? "active" : "inactive"} path={"/app/notes"} icon={<TfiNotepad />} name={"Notes"} />
-                        <SideBarList path={"/app/shares"} icon={<TfiUnlink />} name={"Shared notes"} />
+                        <SideBarList path={"/app/shared-note"} icon={<TfiUnlink />} name={"Shared notes"} />
                         <SideBarList path={"/app/favorite"} icon={<TfiHeart />} name={"Favorites"} />
                     </ul>
                     <ul>

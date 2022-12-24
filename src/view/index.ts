@@ -7,8 +7,10 @@ import Notes from "./app/Notes";
 import AppHome from "./app/AppHome";
 import NotePad from "./app/NotePad";
 import Favorite from "./app/Favorite";
+import SharedNote from "./app/SharedNote";
 
 
 
 
-export { Home, HomeContainer, CreateAccount, SignIn, AppContainer, Notes, AppHome, NotePad, Favorite }
+
+export { Home, HomeContainer, CreateAccount, SignIn, AppContainer, Notes, AppHome, NotePad, Favorite, SharedNote }

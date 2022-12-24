@@ -1,4 +1,4 @@
-import { ReactElement, useEffect } from "react";
+import { ReactElement } from "react";
 import { NavLink } from "react-router-dom";
 interface SideBarListProps {
     name: string;
@@ -13,7 +13,7 @@ const SideBarList: React.FC<SideBarListProps> = ({ name, path, icon, className }
         <>
             <li>
                 <NavLink className={className} to={path}>
-                    {icon}
+                    <div className={"icon_container"}>{icon}</div>
                     <span>{name}</span>
                 </NavLink>
             </li>

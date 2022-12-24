@@ -1,11 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import { AppContainer, AppHome, CreateAccount, Home, HomeContainer, Notes, SignIn, NotePad, Favorite } from "./view";
+import { AppContainer, AppHome, CreateAccount, Home, HomeContainer, Notes, SignIn, NotePad, Favorite, SharedNote } from "./view";
 import "./assets/style/style.css"
-import { UserAuthProvider } from "./contexts/Auth";
+import { UserAuthProvider, NoteContextProvider } from "./contexts/index";
 function App() {
   return (
     <div className="App">
       <UserAuthProvider>
+      <NoteContextProvider>
         <Router>
           <Routes>
             <Route path="/" element={<HomeContainer />}>
@@ -17,11 +18,13 @@ function App() {
             <Route path="/app" element={<AppContainer />}>
             <Route index  element={<AppHome />}></Route>
             <Route path="/app/notes"  element={<Notes />}></Route>
-            <Route path="/app/note-pad"  element={<NotePad />}></Route>
+            <Route path="/app/note-pad/:id"  element={<NotePad />}></Route>
             <Route path="/app/favorite"  element={<Favorite />}></Route>
+            <Route path="/app/shared-note"  element={<SharedNote />}></Route>
             </Route>
           </Routes>
         </Router>
+        </NoteContextProvider>
       </UserAuthProvider>
 
     </div>

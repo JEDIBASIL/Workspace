@@ -7,10 +7,10 @@ const CreateAccount: React.FC = () => {
             <form>
                 <h3>Create account</h3>
                 <Container>
-                    <TextInput mb={"15px"} size={"md"} label={"Email"} placeholder={"Enter email address"} />
-                    <TextInput mb={"15px"} size={"md"} label={"Username"} placeholder={"Enter username"} />
-                    <PasswordInput mb={"15px"} size={"md"} label={"Username"} placeholder={"Enter password"} />
-                    <Button fullWidth size={"md"}>Create account</Button>
+                    <TextInput mb={"15px"} label={"Email"} placeholder={"Enter email address"} />
+                    <TextInput mb={"15px"} label={"Username"} placeholder={"Enter username"} />
+                    <PasswordInput mb={"15px"} label={"Username"} placeholder={"Enter password"} />
+                    <Button fullWidth>Create account</Button>
                 </Container>
             </form>
         </>
