@@ -110,9 +110,14 @@
             border: 1px solid gainsboro;
             border-radius: 5px;
             padding: 15px;
-            height: 150px;
+            height: 160px;
             position: relative;
+            padding-bottom: 8px;
             transition: ease-in-out 0.2s;
+            a{
+              @include flexDisplay(space-between, flex-start, column);
+              height: 100%;
+            }
             &:hover {
               box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.128);
               .more {
@@ -126,10 +131,22 @@
               top: -5px;
             }
             h4 {
-              color: rgb(55, 55, 55);
+              color: rgb(35, 35, 35);
+              font-size: 15px;
             }
             p {
               color: rgb(98, 98, 98);
+              font-size: 13px;
+              line-height: 1.5;
+              margin-top: 5px;
+            }
+            .time_details{
+              @include flexDisplay(space-between, center, row);
+              width: 100%;
+              p{
+                font-size: 10.5px;
+                font-weight: 500;
+              }
             }
           }
         }
@@ -150,20 +167,22 @@
           width: 100%;
           border: none;
           outline: none;
-          font-size: 16px;
+          font-size: 14px;
+          line-height: 1.5;
           margin-top: 20px;
+          height: calc(100vh - 200px);
         }
       }
     }
   }
   .side_bar {
-    background-color: rgb(27, 35, 39);
+    background-color: whitesmoke;
     width: 250px;
     min-width: 250px;
     height: 100vh;
-    border-right: 1px solid black;
+    border-right: 1px solid gainsboro;
     position: sticky;
-    color: white;
+    color: rgb(55, 55, 55);
     top: 0;
     menu {
       //   @include flexDisplay(space-between, center, column);
@@ -173,7 +192,7 @@
         width: 100%;
         li {
           padding: 0px 10px;
-          margin-bottom: 5px;
+          margin-bottom: 12px;
           padding-right: 30px;
           a {
             @include flexDisplay(flex-start, center, row);
@@ -185,6 +204,7 @@
             font-size: 15px;
             &.active:not(.inactive) {
               border: 1px solid silver;
+              background-color: rgb(234, 234, 234);
               &::before {
                 content: "";
                 position: absolute;
@@ -195,12 +215,16 @@
                 border-radius: 5px;
               }
             }
-            svg {
+            .icon_container {
+              @include flexDisplay(center, center, row);
+              border-radius: 50%;
               margin-right: 10px;
-              font-size: 20px;
+              svg {
+                font-size: 18px;
+              }
             }
             &:hover {
-              background-color: rgba(255, 255, 255, 0.175);
+              background-color: rgb(234, 234, 234);
             }
           }
         }
