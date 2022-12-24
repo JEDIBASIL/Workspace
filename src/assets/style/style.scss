@@ -87,6 +87,13 @@
           font-size: 22px;
         }
       }
+      .message_container{
+       width: 100%;
+       @include flexDisplay(center, center, column);
+        img{
+          width: 200px;
+        }
+      }
       .note_list_container {
         height: 100vh;
         top: 0;

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useLayoutEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NoteFields } from "../../components";
 import { useNavigate, useParams } from "react-router-dom";
 import { TfiControlBackward } from "react-icons/tfi";
@@ -10,7 +10,7 @@ const NotePad: React.FC = () => {
   const { id = "" } = useParams();
   const navigate = useNavigate();
   const [noteInfo, setNotePadInfo] = useState({} as Note)
-  useLayoutEffect(() => {
+  useEffect(() => {
     noteDispatcher({ type: "GET_NOTE" });
     setNotePadInfo({ ...notes.filter(note => note?.id === id)[0], id })
   }, [id])

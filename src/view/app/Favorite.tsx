@@ -8,7 +8,6 @@ const Favorite: React.FC = () => {
 
   useEffect(() => {
     noteDispatcher({ type: "GET_NOTE" });
-    console.log(notes)
   }, []);
 
   return (

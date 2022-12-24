@@ -100,6 +100,16 @@
 .app_container .app_content .notes_container .back svg {
   font-size: 22px;
 }
+.app_container .app_content .notes_container .message_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.app_container .app_content .notes_container .message_container img {
+  width: 200px;
+}
 .app_container .app_content .notes_container .note_list_container {
   height: 100vh;
   top: 0;
