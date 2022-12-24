@@ -3,17 +3,27 @@ import { v4 as uuidv4 } from 'uuid';
 import {
   TfiTrash,
   TfiMore,
-  TfiPencilAlt,
   TfiSearch,
   TfiPlus,
   TfiHeart,
   TfiNotepad,
 } from "react-icons/tfi";
 import { Link as A } from "react-router-dom";
-import { NoteContextType } from "../types";
+import { Note, NoteContextType, NoteDispatcher, } from "../types";
+import { useState } from "react";
 
-const NoteList: React.FC<NoteContextType> = ({ noteDispatcher, notes }) => {
+
+
+
+const NoteList: React.FC<NoteContextType> = ({ notes, noteDispatcher }) => {
   const generatedId = uuidv4().toString();
+
+  const [query, setQuery] = useState("" as string)
+  const filteredNotes = notes.filter(note => note.text.toLowerCase().includes(query.toLocaleLowerCase()) || note.title.toLowerCase().includes( query.toLocaleLowerCase()));
+
+  const onchange = (e:React.ChangeEvent<HTMLInputElement>) =>{
+      setQuery(e.target.value);
+  }
   return (
     <>
       <div className="note_list_container">
@@ -24,6 +34,8 @@ const NoteList: React.FC<NoteContextType> = ({ noteDispatcher, notes }) => {
               icon={<TfiSearch />}
               width={"100%"}
               placeholder="Search notes"
+              onChange={onchange}
+              value={query}
             />
           </div>
           <div>
@@ -61,7 +73,7 @@ const NoteList: React.FC<NoteContextType> = ({ noteDispatcher, notes }) => {
           </div>
         ) : (
           <ul>
-            {notes.map(note => (
+            {filteredNotes.map(note => (
               <li key={note.id}>
                 <Menu withArrow position="bottom-end" shadow="md" width={250}>
                   <Menu.Target>
