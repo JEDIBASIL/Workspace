@@ -6,6 +6,7 @@ type Note =
     text: string;
     favorite: boolean;
     date_created: Date;
+    last_modified:Date
   }
 
 
