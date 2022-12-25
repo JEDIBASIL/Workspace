@@ -17,7 +17,7 @@ const SideBar: React.FC = () => {
                                 <SideBarList className={location.pathname !== "/app" ? "inactive" : "active"} path={"/app"} icon={<TfiHome />} name={"Home"} />
                             </Accordion.Item>
                             <Accordion.Item value="projects">
-                                <SideBarList path={"/app/task"} icon={<TfiBlackboard />} name={"Tasks"} />
+                                <SideBarList path={"/app/task"} icon={<TfiBlackboard />} name={"Projects"} />
                             </Accordion.Item>
 
                             <Accordion.Item value="team">

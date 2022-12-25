@@ -7,7 +7,9 @@ const AppContainer: React.FC = () => {
             <div className="app_container">
                 <SideBar />
                 <div className="app_content">
-                    <Outlet />
+                    <div className="notes_container">
+                        <Outlet />
+                    </div>
                 </div>
             </div>
         </>
