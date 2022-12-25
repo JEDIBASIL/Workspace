@@ -14,14 +14,14 @@ const noteReducer = (state: Note[], { type, payload, id }: Action,): Note[] => {
       break;
     case "UPDATE_TITLE": state = state.map((note) => {
         if (note.id === id) {
-          return { ...note, title: payload.title } as Note;;
+          return { ...note, title: payload.title, last_modified: new Date() } as Note;;
         }
         return note;
       });
       break;
     case "UPDATE_TEXT": state = state.map((note) => {
         if (note.id === id) {
-          return { ...note, text: payload.text } as Note;;
+          return { ...note, text: payload.text, last_modified: new Date()} as Note;;
         }
         return note;
       });

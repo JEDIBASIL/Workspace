@@ -133,7 +133,7 @@
             border: 1px solid gainsboro;
             border-radius: 5px;
             padding: 15px;
-            height: 160px;
+            height: 220px;
             position: relative;
             padding-bottom: 8px;
             transition: ease-in-out 0.2s;
@@ -156,19 +156,35 @@
             h4 {
               color: rgb(35, 35, 35);
               font-size: 15px;
+              height: 40px;
+              max-height: 40px;
+              width: 100%;
             }
-            p {
+            .text {
               color: rgb(98, 98, 98);
               font-size: 13px;
-              line-height: 1.5;
-              margin-top: 5px;
+              line-height: 1.6;
+              margin: 8px 0px;
+              border-top: 1px solid gainsboro;
+              border-bottom: 1px solid gainsboro;
+              padding: 5px 0px;
+              height: 80px;
+              max-height: 80px;
+              width: 100%;
+              max-width: 100%
             }
             .time_details {
               @include flexDisplay(space-between, center, row);
               width: 100%;
+              padding-bottom: 10px;
               p {
-                font-size: 10.5px;
+                font-size: 10px;
                 font-weight: 500;
+                color: gray;
+                div{
+                  color: black;
+                  font-size: 11px;
+                }
               }
             }
           }
@@ -199,8 +215,8 @@
     }
   }
   .side_bar {
-    width: 260px;
-    min-width: 260px;
+    width: 240px;
+    min-width: 240px;
     height: 100vh;
     position: sticky;
     color: var(--sidebar-color);

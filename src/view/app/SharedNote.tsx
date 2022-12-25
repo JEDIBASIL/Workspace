@@ -3,7 +3,7 @@ import { Tabs } from "@mantine/core";
 const SharedNote: React.FC = () => {
   return (
     <>
-      <div className="notes_container">
+      <div >
         <h2>Shared notes</h2>
         <Tabs variant="outline" defaultValue="your_note">
           <Tabs.List>

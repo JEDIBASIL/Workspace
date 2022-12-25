@@ -15,6 +15,7 @@ import noteFoundImg from "../assets/svgs/Web search-cuate.svg"
 import noNoteImg from "../assets/svgs/Notes-cuate.svg"
 import noFavoriteImg from "../assets/svgs/In love-cuate.svg"
 import NoteLoader from "./loaders/NoteLoader";
+import { dateConverter } from "../utils";
 
 
 
@@ -153,7 +154,7 @@ const NoteList: React.FC<NoteContextType> = ({ notes, noteDispatcher }) => {
                           </Menu.Dropdown>
                         </Menu>
                         <A to={"/app/note-pad/" + note.id}>
-                          <div>
+                          <div style={{width:"100%"}}>
                             {note.title.length > 60
                               ?
                               <h4 style={{ fontWeight: "500" }}>
@@ -164,11 +165,21 @@ const NoteList: React.FC<NoteContextType> = ({ notes, noteDispatcher }) => {
                                 {note.title}
                               </h4>
                             }
-                            <p style={{ fontWeight: "500" }}>{note.text.slice(0, 120) + "..."} </p>
+                            {
+                              note.text.length > 110
+                              ?
+                              <p className="text">
+                              {note.text.slice(0, 110) + "..."} 
+                            </p>
+                            :
+                              <p className="text">
+                              {note.text} 
+                            </p>
+                            }
                           </div>
                           <div className="time_details">
-                            <p>Created: 9 Jan, 2020</p>
-                            <p>Last modified: 9 Jan, 2020</p>
+                            <p>Created at <div>{dateConverter(note.date_created)}</div></p>
+                            <p>Last modified <div>{dateConverter(note.last_modified)}</div></p>
                           </div>
                         </A>
                       </li>

@@ -11,7 +11,7 @@ const Favorite: React.FC = () => {
   }, []);
 
   return (
-    <div className="notes_container">
+    <div>
       <h2>Favorite</h2>
       <NoteList
         notes={notes?.filter(note=> note?.favorite)}
