@@ -16,4 +16,15 @@ const getNote = (): Note[] | any => {
         return JSON.parse(isSet);
 }
 
-export { saveNote, isNote, getNote }
+const dateConverter = (date: Date): string => {
+    date = new Date();
+    const months: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+    let day = date.getDate()
+    let month = date.getMonth()
+    let year = date.getFullYear()
+    return `${day} ${months[month]}, ${year}`;
+}
+
+export { saveNote, isNote, getNote, dateConverter }
+
+
