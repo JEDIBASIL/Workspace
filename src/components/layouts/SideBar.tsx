@@ -4,7 +4,7 @@ import SideBarList from "./SideBarList";
 import { useLocation, NavLink } from "react-router-dom";
 import { Accordion } from "@mantine/core";
 import SubSideBarLink from "./SubSideBarLink";
-import SideBarLoader from "./loaders/SideBarLoader";
+import SideBarLoader from "../loaders/SideBarLoader";
 
 interface SideBarProps {
     visible: boolean;

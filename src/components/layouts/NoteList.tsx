@@ -8,14 +8,14 @@ import {
   TfiHeart,
 } from "react-icons/tfi";
 import { Link as A, useLocation } from "react-router-dom";
-import { NoteContextType, } from "../types";
+import { NoteContextType, } from "../../types";
 import { useEffect, useState } from "react";
+import noteFoundImg from "../../assets/svgs/Web search-cuate.svg"
+import noNoteImg from "../../assets/svgs/Notes-cuate.svg"
+import noFavoriteImg from "../../assets/svgs/In love-cuate.svg"
+import NoteLoader from "../loaders/NoteLoader";
+import { dateConverter } from "../../utils";
 import Message from "./Message";
-import noteFoundImg from "../assets/svgs/Web search-cuate.svg"
-import noNoteImg from "../assets/svgs/Notes-cuate.svg"
-import noFavoriteImg from "../assets/svgs/In love-cuate.svg"
-import NoteLoader from "./loaders/NoteLoader";
-import { dateConverter } from "../utils";
 
 
 

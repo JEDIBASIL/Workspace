@@ -1,4 +1,4 @@
-import { Note, NoteDispatcher } from "../types";
+import { Note, NoteDispatcher } from "../../types";
 
 interface NoteFieldsProps {
     noteDispatcher: NoteDispatcher;

@@ -1,9 +1,9 @@
-import NavBar from "./Navbar"
-import SideBar from "./SideBar"
-import NoteList from "./NoteList"
-import NoteFields from "./NoteFields"
-import Message from "./Message"
+import NavBar from "./layouts/Navbar"
+import SideBar from "./layouts/SideBar"
+import NoteList from "./layouts/NoteList"
+import NoteFields from "./layouts/NoteFields"
+import Message from "./layouts/Message"
 
 
 
-export {NavBar, SideBar, NoteList, NoteFields, Message}
+export { NavBar, SideBar, NoteList, NoteFields, Message }
