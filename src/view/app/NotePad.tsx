@@ -15,7 +15,7 @@ const NotePad: React.FC = () => {
     setNotePadInfo({ ...notes.filter(note => note?.id === id)[0], id })
   }, [id])
   return (
-    <div className="notes_container">
+    <div>
       <div onClick={() => navigate(-1)} className="back">
         <TfiControlBackward /> Back
       </div>

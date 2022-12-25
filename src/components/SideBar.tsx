@@ -6,11 +6,11 @@ import { Accordion } from "@mantine/core";
 import SubSideBarLink from "./SubSideBarLink";
 import SideBarLoader from "./loaders/SideBarLoader";
 
-interface SideBarProps{
-    visible:boolean;
+interface SideBarProps {
+    visible: boolean;
 }
-const SideBar: React.FC<SideBarProps> = ({visible}) => {
-    const location = useLocation() 
+const SideBar: React.FC<SideBarProps> = ({ visible }) => {
+    const location = useLocation()
     return (
         <>
             <nav className="side_bar">
@@ -18,7 +18,7 @@ const SideBar: React.FC<SideBarProps> = ({visible}) => {
                     {
                         visible
                             ?
-                            <SideBarLoader />
+                            <SideBarLoader size={7} />
                             :
                             <menu>
                                 <ul>

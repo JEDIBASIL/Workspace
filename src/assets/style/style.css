@@ -23,8 +23,8 @@
   --border: gainsboro;
   --sidebar-background-color:black;
   --sidebar-color:rgb(234, 234, 234);
-  --sidebar-color-active:rgb(57, 57, 57);
-  --sidebar-color-hover:rgb(49, 49, 49);
+  --sidebar-color-active:rgb(46,48,53);
+  --sidebar-color-hover:rgb(46,48,53);
 }
 
 .more {
@@ -129,7 +129,6 @@
   width: 140px;
 }
 .app_container .app_content .notes_container .note_list_container {
-  height: 100vh;
   top: 0;
   width: 100%;
 }
@@ -140,7 +139,6 @@
   flex-direction: row;
   gap: 30px;
   width: 100%;
-  margin: 0px auto;
 }
 .app_container .app_content .notes_container .note_list_container .note_search_bar_container .search_box {
   width: 500px;
@@ -363,4 +361,36 @@
 }
 .app_container .side_bar menu ul li .links_container .icon_container svg {
   font-size: 18px;
+}
+
+.note_search_bar_loader_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+.note_search_bar_loader_container .loader_search_box {
+  width: 500px;
+}
+
+.note_loader_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  gap: 20px;
+  padding-top: 30px;
+}
+.note_loader_container .note_loader_content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  padding: 15px;
+  height: 160px;
+  position: relative;
+  padding-bottom: 8px;
+  transition: ease-in-out 0.2s;
 }/*# sourceMappingURL=style.css.map */
