@@ -1,21 +1,29 @@
+import { Accordion } from "@mantine/core";
 import { ReactElement } from "react";
 import { NavLink } from "react-router-dom";
 interface SideBarListProps {
     name: string;
     path: string;
-    icon: ReactElement,
-    className?:string
+    icon: ReactElement;
+    className?: string;
+    isMultiple?:boolean | null;
 }
 
 
-const SideBarList: React.FC<SideBarListProps> = ({ name, path, icon, className }) => {
+const SideBarList: React.FC<SideBarListProps> = ({ name, isMultiple, path, icon, className }) => {
     return (
         <>
             <li>
-                <NavLink className={className} to={path}>
-                    <div className={"icon_container"}>{icon}</div>
-                    <span>{name}</span>
-                </NavLink>
+                <div className="links_container">
+                    <NavLink className={className} to={path}>
+                        <Accordion.Control chevron={!isMultiple && <></>}>
+                            <div className="links_container">
+                                <div className={"icon_container"}>{icon}</div>
+                                <span>{name}</span>
+                            </div>
+                        </Accordion.Control>
+                    </NavLink>
+                </div>
             </li>
         </>
     );

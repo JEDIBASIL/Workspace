@@ -9,6 +9,24 @@
   color: inherit;
 }
 
+:root {
+--background: white;
+--componentBackground: white;
+--color: black;
+--lightColor: rgb(77, 77, 77);
+--lighterColor: gray;
+--hover: rgb(245, 245, 245);
+--majorColor: royalblue;
+--topBar: gainsboro;
+--shadow1: 0px 0px 30px rgba(0, 0, 0, 0.062);
+--shadow2: 0px 0px 20px #5946ffa9;
+--border: gainsboro;
+--sidebar-background-color:black;
+--sidebar-color:rgb(234, 234, 234);
+--sidebar-color-active:rgb(57, 57, 57);
+--sidebar-color-hover:rgb(49, 49, 49);
+}
+
 @mixin flexDisplay($justify, $align, $direction) {
   display: flex;
   justify-content: $justify;
@@ -87,11 +105,11 @@
           font-size: 22px;
         }
       }
-      .message_container{
-       width: 100%;
-       @include flexDisplay(center, center, column);
-        img{
-          width: 200px;
+      .message_container {
+        width: 100%;
+        @include flexDisplay(center, center, column);
+        img {
+          width: 140px;
         }
       }
       .note_list_container {
@@ -121,7 +139,7 @@
             position: relative;
             padding-bottom: 8px;
             transition: ease-in-out 0.2s;
-            a{
+            a {
               @include flexDisplay(space-between, flex-start, column);
               height: 100%;
             }
@@ -147,10 +165,10 @@
               line-height: 1.5;
               margin-top: 5px;
             }
-            .time_details{
+            .time_details {
               @include flexDisplay(space-between, center, row);
               width: 100%;
-              p{
+              p {
                 font-size: 10.5px;
                 font-weight: 500;
               }
@@ -183,14 +201,89 @@
     }
   }
   .side_bar {
-    background-color: whitesmoke;
-    width: 250px;
-    min-width: 250px;
+    width: 260px;
+    min-width: 260px;
     height: 100vh;
-    border-right: 1px solid gainsboro;
     position: sticky;
-    color: rgb(55, 55, 55);
+    color: var(--sidebar-color);
+    background-color: var(--sidebar-background-color);
     top: 0;
+    padding: 0px 10px;
+    .mantine-Accordion-item {
+      padding: 0;
+      margin-bottom: 10px;
+      button {
+        background-color: transparent;
+        border: none;
+        width: 100%;
+      }
+
+      .mantine-Accordion-control {
+        width: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        border-radius: 5px;
+        padding: 10px 12px;
+        height: 100%;
+        &:hover{
+          background-color: var(--sidebar-color-hover);
+        }
+        a {
+          padding: 5px 12px;
+          border: none !important;
+          background-color: transparent;
+        }
+        .mantine-Accordion-label {
+          width: 100%;
+          padding: 0;
+        }
+      }
+
+      .mantine-Accordion-panel {
+        .panel_container {
+          border: 1px solid silver;
+          border-top: none;
+          margin-left: 8px;
+          margin-right: 8px;
+          border-radius: 0 0 5px 5px;
+        }
+        li {
+          &:nth-child(1) {
+            a {
+              border-top: 0 !important;
+            }
+          }
+          &:nth-last-child(1) {
+            a {
+              border-bottom: 0 !important;
+              border-radius: 0px 0px 5px 5px;
+            }
+          }
+          margin-bottom: 0 !important;
+          a {
+            font-size: 13px;
+            border-right: none !important;
+            border-radius: 0;
+            transform: translate(0);
+            padding: 9px 12px;
+            &:hover{
+              background-color: var(--sidebar-color-hover);
+            }
+            &.active {
+              border-left: 1px solid silver !important;
+              &::before{
+                display: none !important;
+              }
+            }
+            svg {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+
     menu {
       //   @include flexDisplay(space-between, center, column);
       height: 100%;
@@ -198,28 +291,25 @@
       ul {
         width: 100%;
         li {
-          padding: 0px 10px;
-          margin-bottom: 12px;
-          padding-right: 30px;
-          a {
+
+          a:not(.icon_container a) {
             @include flexDisplay(flex-start, center, row);
             font-weight: 500;
             width: 100%;
-            padding: 10px 12px;
             border-radius: 5px;
             position: relative;
             font-size: 15px;
             &.active:not(.inactive) {
-              border: 1px solid silver;
-              background-color: rgb(234, 234, 234);
+              border: 1px solid rgb(182, 182, 182);
+              background-color: var(--sidebar-color-active);
               &::before {
                 content: "";
                 position: absolute;
-                width: 8px;
-                height: 70%;
-                background-color: silver;
+                width: 6px;
+                height: 25px;
+                background-color: var(--sidebar-color);
                 left: -4px;
-                border-radius: 5px;
+                border-radius: 2px;
               }
             }
             .icon_container {
@@ -230,8 +320,22 @@
                 font-size: 18px;
               }
             }
-            &:hover {
-              background-color: rgb(234, 234, 234);
+          }
+
+          .links_container {
+            @include flexDisplay(flex-start, center, row);
+            font-weight: 500;
+            width: 100%;
+            border-radius: 5px;
+            position: relative;
+            font-size: 15px;
+            .icon_container {
+              @include flexDisplay(center, center, row);
+              border-radius: 50%;
+              margin-right: 10px;
+              svg {
+                font-size: 18px;
+              }
             }
           }
         }
