@@ -86,7 +86,7 @@ const NoteList: React.FC<NoteContextType> = ({ notes, noteDispatcher }) => {
                 </div>
               </div>
 
-
+              
               {notes.length === 0 ? (
                 <Flex
                   mt={window.innerHeight / 5}

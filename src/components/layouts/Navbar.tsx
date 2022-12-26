@@ -6,7 +6,7 @@ const NavBar: React.FC = () => {
             <nav>
                 <A className="logo" to={"/"}>
                     <GiBirdHouse />
-                    Tweet Note
+                    TweSpace
                 </A>
             </nav>
         </>

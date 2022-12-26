@@ -1,9 +1,12 @@
+import { PageHeader } from "../../components";
 
 
 const AppHome: React.FC = () => {
     return (  
         <>
-        hello world
+        <div>
+        <PageHeader name={"Home"} />
+        </div>
         </>
     );
 }

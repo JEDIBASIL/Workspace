@@ -1,10 +1,11 @@
 import { Tabs } from "@mantine/core";
+import { PageHeader } from "../../components";
 
 const SharedNote: React.FC = () => {
   return (
     <>
       <div >
-        <h2>Shared notes</h2>
+        <PageHeader name={"Shared notes"} />
         <Tabs variant="outline" defaultValue="your_note">
           <Tabs.List>
             <Tabs.Tab value="your_note">

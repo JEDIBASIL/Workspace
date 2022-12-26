@@ -10,21 +10,21 @@
 }
 
 :root {
---background: white;
---componentBackground: white;
---color: black;
---lightColor: rgb(77, 77, 77);
---lighterColor: gray;
---hover: rgb(245, 245, 245);
---majorColor: royalblue;
---topBar: gainsboro;
---shadow1: 0px 0px 30px rgba(0, 0, 0, 0.062);
---shadow2: 0px 0px 20px #5946ffa9;
---border: gainsboro;
---sidebar-background-color:black;
---sidebar-color:rgb(234, 234, 234);
---sidebar-color-active:rgb(46,48,53);
---sidebar-color-hover:rgb(46,48,53);
+  --background: white;
+  --componentBackground: white;
+  --color: black;
+  --lightColor: rgb(77, 77, 77);
+  --lighterColor: gray;
+  --hover: rgb(245, 245, 245);
+  --majorColor: royalblue;
+  --topBar: gainsboro;
+  --shadow1: 0px 0px 30px rgba(0, 0, 0, 0.062);
+  --shadow2: 0px 0px 20px #5946ffa9;
+  --border: gainsboro;
+  --sidebar-background-color: black;
+  --sidebar-color: rgb(234, 234, 234);
+  --sidebar-color-active: rgb(46, 48, 53);
+  --sidebar-color-hover: rgb(46, 48, 53);
 }
 
 @mixin flexDisplay($justify, $align, $direction) {
@@ -57,33 +57,72 @@
     .logo {
       font-size: 25px;
       @include flexDisplay(center, center, row);
-      background: linear-gradient(50deg, rgb(34, 139, 230), royalblue);
+      background: linear-gradient(50deg, black, rgb(55, 71, 79));
       color: transparent;
       -webkit-background-clip: text;
       font-weight: 500;
       svg {
-        fill: rgb(34, 139, 230);
+        fill: black;
         font-size: 50px;
       }
     }
   }
   form {
-    background-color: whitesmoke;
     width: 400px;
     padding: 20px 10px;
     border-radius: 8px;
     margin: 20px auto;
-    border: 1px solid gainsboro;
+    // border: 1px solid gainsboro;
+    .form_btn {
+      background-color: black;
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      width: 100%;
+      border: none;
+      padding: 8px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
     h3 {
       padding: 10px;
       margin-bottom: 5px;
-      color: slategray;
+      color: rgb(55, 71, 79);
+      text-align: center;
+      font-size: 35px;
     }
   }
   .home_banner {
     @include flexDisplay(center, center, row);
     img {
       width: 500px;
+    }
+    .text {
+      h1 {
+        font-size: 50px;
+      }
+      .btn_container {
+        margin-top: 40px;
+        a {
+          button {
+            background-color: rgb(55, 71, 79);
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 200px;
+          }
+          &:nth-child(2) {
+            button {
+              background-color: transparent;
+              color: black;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -171,7 +210,7 @@
               height: 80px;
               max-height: 80px;
               width: 100%;
-              max-width: 100%
+              max-width: 100%;
             }
             .time_details {
               @include flexDisplay(space-between, center, row);
@@ -181,7 +220,7 @@
                 font-size: 10px;
                 font-weight: 500;
                 color: gray;
-                div{
+                div {
                   color: black;
                   font-size: 11px;
                 }
@@ -240,7 +279,7 @@
         border-radius: 5px;
         padding: 10px 12px;
         height: 100%;
-        &:hover{
+        &:hover {
           background-color: var(--sidebar-color-hover);
         }
         a {
@@ -281,12 +320,12 @@
             border-radius: 0;
             transform: translate(0);
             padding: 9px 12px;
-            &:hover{
+            &:hover {
               background-color: var(--sidebar-color-hover);
             }
             &.active {
               border-left: 1px solid silver !important;
-              &::before{
+              &::before {
                 display: none !important;
               }
             }
@@ -305,7 +344,6 @@
       ul {
         width: 100%;
         li {
-
           a:not(.icon_container a) {
             @include flexDisplay(flex-start, center, row);
             font-weight: 500;
@@ -358,23 +396,22 @@
   }
 }
 
-.note_search_bar_loader_container{
+.note_search_bar_loader_container {
   @include flexDisplay(space-between, center, row);
   width: 100%;
   .loader_search_box {
     width: 500px;
   }
-
 }
 
-.note_loader_container{
+.note_loader_container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
   gap: 20px;
   padding-top: 30px;
-  .note_loader_content{
-      @include flexDisplay(flex-start, flex-start, column);
+  .note_loader_content {
+    @include flexDisplay(flex-start, flex-start, column);
     border: 1px solid gainsboro;
     border-radius: 5px;
     padding: 15px;

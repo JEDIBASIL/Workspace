@@ -12,7 +12,7 @@ const Message: React.FC<MessageProps> = ({ title, message, image }) => {
             <div className="message_container">
                 <img src={image as string} alt="" />
                 <h3>{title}</h3>
-                <p>{message}</p>
+                <p role={"paragraph"}>{message}</p>
             </div>
         </>
     );

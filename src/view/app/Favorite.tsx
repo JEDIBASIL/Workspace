@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { NoteList } from "../../components";
+import { NoteList, PageHeader } from "../../components";
 import { NoteContext } from "../../contexts";
 
 const Favorite: React.FC = () => {
@@ -12,7 +12,7 @@ const Favorite: React.FC = () => {
 
   return (
     <div>
-      <h2>Favorite</h2>
+      <PageHeader name={"Favorite"} />
       <NoteList
         notes={notes?.filter(note=> note?.favorite)}
         noteDispatcher={noteDispatcher}

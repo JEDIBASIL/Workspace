@@ -10,13 +10,13 @@ interface SideBarListProps {
 }
 
 
-const SideBarList: React.FC<SideBarListProps> = ({ name, isMultiple, path, icon, className }) => {
+const SideBarList: React.FC<SideBarListProps> = ({ name, isMultiple=false, path, icon, className }) => {
     return (
         <>
             <li>
                 <div className="links_container">
                     <NavLink className={className} to={path}>
-                        <Accordion.Control chevron={!isMultiple && <></>}>
+                        <Accordion.Control chevron={!isMultiple && <span role={"chevron"}></span>}>
                             <div className="links_container">
                                 <div className={"icon_container"}>{icon}</div>
                                 <span>{name}</span>
