@@ -1,20 +1,19 @@
 import bannerImg from "../../assets/svgs/Duplicate-cuate.svg"
-import { Button, Container } from "@mantine/core"
 import { Link as A } from "react-router-dom"
 const Home: React.FC = () => {
     return (
         <>
             <div className="home_banner">
-                
-                <img src={bannerImg} alt="" />
-                <div>
-                    <Container size={300}>
-                        <A to={"/create-account"}><Button size={"md"} fullWidth>Create account</Button></A>
-                    </Container>
-                    <Container mt={"10px"} size={300}>
-                        <A to={"/sign-in"}><Button size={"md"} variant={"white"} fullWidth>Sign in</Button></A>
-                    </Container>
+
+                <div className="text">
+                    <h1>A Workspace for </h1>
+                    <h1>Everyone</h1>
+                  <div className="btn_container">
+                  <A to={"/create-account"}><button >Create account</button></A>
+                    <A to={"/sign-in"}><button >Sign in</button></A>
+                  </div>
                 </div>
+                <img src={bannerImg} alt="" />
             </div>
         </>
     );

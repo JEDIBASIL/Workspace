@@ -21,10 +21,10 @@
   --shadow1: 0px 0px 30px rgba(0, 0, 0, 0.062);
   --shadow2: 0px 0px 20px #5946ffa9;
   --border: gainsboro;
-  --sidebar-background-color:black;
-  --sidebar-color:rgb(234, 234, 234);
-  --sidebar-color-active:rgb(46,48,53);
-  --sidebar-color-hover:rgb(46,48,53);
+  --sidebar-background-color: black;
+  --sidebar-color: rgb(234, 234, 234);
+  --sidebar-color-active: rgb(46, 48, 53);
+  --sidebar-color-hover: rgb(46, 48, 53);
 }
 
 .more {
@@ -60,27 +60,38 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  background: linear-gradient(50deg, rgb(34, 139, 230), royalblue);
+  background: linear-gradient(50deg, black, royalblue);
   color: transparent;
   -webkit-background-clip: text;
   font-weight: 500;
 }
 .home_container nav .logo svg {
-  fill: rgb(34, 139, 230);
+  fill: black;
   font-size: 50px;
 }
 .home_container form {
-  background-color: whitesmoke;
   width: 400px;
   padding: 20px 10px;
   border-radius: 8px;
   margin: 20px auto;
-  border: 1px solid gainsboro;
+}
+.home_container form .form_btn {
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  width: 100%;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 .home_container form h3 {
   padding: 10px;
   margin-bottom: 5px;
   color: slategray;
+  text-align: center;
+  font-size: 35px;
 }
 .home_container .home_banner {
   display: flex;
@@ -90,6 +101,27 @@
 }
 .home_container .home_banner img {
   width: 500px;
+}
+.home_container .home_banner .text h1 {
+  font-size: 50px;
+}
+.home_container .home_banner .text .btn_container {
+  margin-top: 40px;
+}
+.home_container .home_banner .text .btn_container a button {
+  background-color: rgb(55, 71, 79);
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 200px;
+}
+.home_container .home_banner .text .btn_container a:nth-child(2) button {
+  background-color: transparent;
+  color: black;
 }
 
 .app_container {
