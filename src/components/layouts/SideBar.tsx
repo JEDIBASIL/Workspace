@@ -1,10 +1,11 @@
-import { TfiHome, TfiNotepad, TfiSettings, TfiFaceSmile, TfiUnlink, TfiHeart, TfiPowerOff, TfiBlackboard } from "react-icons/tfi"
+import { TfiHome, TfiNotepad, TfiSettings, TfiUnlink, TfiHeart, TfiPowerOff, TfiBlackboard } from "react-icons/tfi"
 import { HiOutlineUsers } from "react-icons/hi"
 import SideBarList from "./SideBarList";
-import { useLocation, NavLink } from "react-router-dom";
+import { useLocation, Link as A } from "react-router-dom";
 import { Accordion } from "@mantine/core";
 import SubSideBarLink from "./SubSideBarLink";
 import SideBarLoader from "../loaders/SideBarLoader";
+import { GiBirdHouse } from "react-icons/gi";
 
 interface SideBarProps {
     visible: boolean;
@@ -14,6 +15,10 @@ const SideBar: React.FC<SideBarProps> = ({ visible }) => {
     return (
         <>
             <nav className="side_bar">
+            <A className="logo" to={"/"}>
+                    <GiBirdHouse />
+                    TweSpace
+                </A>
                 <Accordion unstyled>
                     {
                         visible

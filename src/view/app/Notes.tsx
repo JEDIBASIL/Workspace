@@ -9,10 +9,12 @@ const Notes: React.FC = () => {
     const { notes, noteDispatcher } = useContext(NoteContext);
 
     return (
-        <div>
+        <>
         <PageHeader name={"Notes"} />
-            <NoteList noteDispatcher={noteDispatcher} notes={notes} />
-        </div>
+           <div className="note_content">
+                <NoteList noteDispatcher={noteDispatcher} notes={notes} />
+           </div>
+        </>
     );
 };
 

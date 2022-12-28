@@ -54,6 +54,8 @@ const NoteList: React.FC<NoteContextType> = ({ notes, noteDispatcher }) => {
                     placeholder="Search notes"
                     onChange={onchange}
                     value={query}
+                    radius={5}
+                  
                   />
                 </div>
                 <div>
@@ -72,7 +74,7 @@ const NoteList: React.FC<NoteContextType> = ({ notes, noteDispatcher }) => {
                     to={"/app/note-pad/" + generatedId}
                   >
                     <Button
-                      size={"xs"}
+                     radius={5}
                       leftIcon={
                         <TfiPlus style={{ fontSize: "22px", fill: "white" }} />
                       }
@@ -80,7 +82,7 @@ const NoteList: React.FC<NoteContextType> = ({ notes, noteDispatcher }) => {
                       Add Note
                     </Button>
                   </A>
-                  <Button size={"xs"} ml={"10px"} color={"red"}>
+                  <Button radius={5} ml={"10px"} color={"red"}>
                     <TfiTrash style={{ fontSize: "18px", fill: "white" }} />
                   </Button>
                 </div>
