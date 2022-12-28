@@ -31,6 +31,7 @@ const MockSideBarLink:React.FC<SideBarListProps> = ({name, className, icon, path
 }
 
 // TEST 1
+describe(" testing SideBarList component  ", ()=>{
 it("test to check if the path props is correct", async()=>{
     render(<MockSideBarLink className={className} icon={<Icon />} name={name} path={path} />)
     const linkElement = screen.getByRole("link")
@@ -70,4 +71,5 @@ it("test to check if the chevron icon is rendered", async()=>{
     render(<MockSideBarLink className={className} icon={<Icon />} name={name} path={path} />)
     const SideBarIcon = screen.getByRole("chevron")
     expect(SideBarIcon).toBeTruthy()
+})
 })
