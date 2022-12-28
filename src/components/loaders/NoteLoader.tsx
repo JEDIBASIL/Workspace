@@ -24,7 +24,7 @@ const NoteLoader: React.FC<NoteLoaderProps> = ({ size = 3 }) => {
                 <div className="note_loader_container">
                     {
                         loaderNum.map(i =>
-                            <div className="note_loader_content">
+                            <div key={i} role={"loader_container"} className="note_loader_content">
                                 <Skeleton mih={50} height={50} radius={5} mb={15} />
                                 <Skeleton height={"100%"} radius={5} />
                                 <Skeleton />
