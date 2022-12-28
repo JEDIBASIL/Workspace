@@ -16,7 +16,7 @@ describe("testing ShortCutCard component", () => {
     it("test to check if the name is rendered correctly", () => {
         render(<ShortCutCard icon={<Icon role={"icon"} />} name={name} color={color} />)
         const shortCutCardName = screen.getByRole("para")
-        expect(shortCutCardName).toBeInTheDocument()
+        expect(shortCutCardName.textContent).toBe(name)
     })  
 
     it("test to check if the icon container color is rendered correctly", () => {
