@@ -10,7 +10,7 @@
 }
 
 :root {
-  --background: white;
+  --background: rgb(251,251,250);
   --componentBackground: white;
   --color: black;
   --lightColor: rgb(77, 77, 77);
@@ -21,10 +21,33 @@
   --shadow1: 0px 0px 30px rgba(0, 0, 0, 0.062);
   --shadow2: 0px 0px 20px #5946ffa9;
   --border: gainsboro;
-  --sidebar-background-color: black;
+
+  --sidebar-background-color: white;
+  --sidebar-color: rgb(74, 74, 74);
+  --sidebar-backgroundcolor-active: rgb(208, 208, 208);
+  --sidebar-color-active: white;
+
+  --sidebar-color-hover: rgb(235, 235, 235);
+  --sidebar-border: whitesmoke;
+  --sidebar-logo-backgroundcolor: linear-gradient(50deg, rgb(9, 9, 9), rgb(140, 151, 157));
+  --sidebar-logo-svg-color:black;
+}
+
+[data-theme="dark"]{
+  --background: rgb(25,24,26);
+  --componentBackground: rgb(37,38,43);
+  --color: rgb(255, 255, 255);
+  --lightColor: rgb(228, 228, 228);
+  --lighterColor: rgb(196, 196, 196);
+  --border: rgb(54, 57, 61);
+
+    --sidebar-background-color: rgb(37,38,43);
   --sidebar-color: rgb(234, 234, 234);
   --sidebar-color-active: rgb(46, 48, 53);
   --sidebar-color-hover: rgb(46, 48, 53);
+  --sidebar-border: rgb(180, 180, 180);
+  --sidebar-logo-backgroundcolor: linear-gradient(50deg, white, rgb(140, 151, 157));
+  --sidebar-logo-svg-color:white;
 }
 
 @mixin flexDisplay($justify, $align, $direction) {
@@ -128,140 +151,33 @@
 }
 
 .app_container {
-  @include flexDisplay(flex-start, flex-start, row);
-  .app_content {
-    width: 100%;
-    .notes_container {
-      padding: 10px 40px;
-      h2 {
-        margin-bottom: 20px;
-      }
-      .back {
-        @include flexDisplay(flex-start, center, row);
-        cursor: pointer;
-        margin-bottom: 20px;
-        svg {
-          font-size: 22px;
-        }
-      }
-      .message_container {
-        width: 100%;
-        @include flexDisplay(center, center, column);
-        img {
-          width: 140px;
-        }
-      }
-      .note_list_container {
-        top: 0;
-        width: 100%;
-        .note_search_bar_container {
-          @include flexDisplay(space-between, center, row);
-          gap: 30px;
-          width: 100%;
-          .search_box {
-            width: 500px;
-          }
-        }
-        ul {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          width: 100%;
-          gap: 20px;
-          padding-top: 30px;
-          li {
-            border: 1px solid gainsboro;
-            border-radius: 5px;
-            padding: 15px;
-            height: 220px;
-            position: relative;
-            padding-bottom: 8px;
-            transition: ease-in-out 0.2s;
-            a {
-              @include flexDisplay(space-between, flex-start, column);
-              height: 100%;
-            }
-            &:hover {
-              box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.128);
-              .more {
-                background-color: white;
-                border: 1px solid gainsboro;
-              }
-            }
-            .more {
-              position: absolute;
-              right: 5px;
-              top: -5px;
-            }
-            h4 {
-              color: rgb(35, 35, 35);
-              font-size: 15px;
-              height: 40px;
-              max-height: 40px;
-              width: 100%;
-            }
-            .text {
-              color: rgb(98, 98, 98);
-              font-size: 13px;
-              line-height: 1.6;
-              margin: 8px 0px;
-              border-top: 1px solid gainsboro;
-              border-bottom: 1px solid gainsboro;
-              padding: 5px 0px;
-              height: 80px;
-              max-height: 80px;
-              width: 100%;
-              max-width: 100%;
-            }
-            .time_details {
-              @include flexDisplay(space-between, center, row);
-              width: 100%;
-              padding-bottom: 10px;
-              p {
-                font-size: 10px;
-                font-weight: 500;
-                color: gray;
-                div {
-                  color: black;
-                  font-size: 11px;
-                }
-              }
-            }
-          }
-        }
-      }
-      .note_fields {
-        padding: 10px 10px;
-        width: 100%;
-        input {
-          display: block;
-          width: 100%;
-          font-size: 20px;
-          border: none;
-          outline: none;
-          font-weight: 600;
-        }
-        textarea {
-          display: block;
-          width: 100%;
-          border: none;
-          outline: none;
-          font-size: 14px;
-          line-height: 1.5;
-          margin-top: 20px;
-          height: calc(100vh - 200px);
-        }
-      }
-    }
-  }
+  background-color: var(--background);
+  color: var(--color);
   .side_bar {
-    width: 240px;
-    min-width: 240px;
+    width: 220px;
+    min-width: 220px;
     height: 100vh;
     position: sticky;
+    top: 0;
+    padding: 10px 10px;
     color: var(--sidebar-color);
     background-color: var(--sidebar-background-color);
-    top: 0;
-    padding: 0px 10px;
+    border-right: 1px solid var(--border);
+    .logo {
+      font-size: 20px;
+      @include flexDisplay(flex-start, center, row);
+      margin-bottom: 10px;
+      padding-left: 10px;
+      background: linear-gradient(50deg, white, rgb(140, 151, 157));
+      background: var(--sidebar-logo-backgroundcolor);
+      color: transparent;
+      -webkit-background-clip: text;
+      font-weight: 500;
+      svg {
+        fill: var(--sidebar-logo-svg-color);
+        font-size: 28px;
+      }
+    }
     .mantine-Accordion-item {
       padding: 0;
       margin-bottom: 10px;
@@ -276,8 +192,8 @@
         display: flex;
         flex-direction: row-reverse;
         align-items: center;
-        border-radius: 5px;
-        padding: 10px 12px;
+        border-radius: 8px;
+        padding: 6px 12px;
         height: 100%;
         &:hover {
           background-color: var(--sidebar-color-hover);
@@ -297,27 +213,30 @@
         .panel_container {
           border: 1px solid silver;
           border-top: none;
-          margin-left: 8px;
-          margin-right: 8px;
+          margin-left: 12px;
+          margin-right: 12px;
           border-radius: 0 0 5px 5px;
         }
         li {
           &:nth-child(1) {
             a {
               border-top: 0 !important;
+              border-radius: 0 !important;
+              border-left: 0 !important;
+              border-right: 0 !important;
             }
           }
           &:nth-last-child(1) {
             a {
               border-bottom: 0 !important;
-              border-radius: 0px 0px 5px 5px;
+              border-left: 0 !important;
+              border-radius: 0px 0px 5px 5px !important;
             }
           }
           margin-bottom: 0 !important;
           a {
             font-size: 13px;
             border-right: none !important;
-            border-radius: 0;
             transform: translate(0);
             padding: 9px 12px;
             &:hover {
@@ -338,7 +257,6 @@
     }
 
     menu {
-      //   @include flexDisplay(space-between, center, column);
       height: 100%;
       width: 100%;
       ul {
@@ -348,21 +266,12 @@
             @include flexDisplay(flex-start, center, row);
             font-weight: 500;
             width: 100%;
-            border-radius: 5px;
             position: relative;
-            font-size: 15px;
+            font-size: 12px;
             &.active:not(.inactive) {
-              border: 1px solid rgb(182, 182, 182);
               background-color: var(--sidebar-color-active);
-              &::before {
-                content: "";
-                position: absolute;
-                width: 6px;
-                height: 25px;
-                background-color: var(--sidebar-color);
-                left: -4px;
-                border-radius: 2px;
-              }
+              border-radius: 8px;
+              background-color: var(--sidebar-backgroundcolor-active);
             }
             .icon_container {
               @include flexDisplay(center, center, row);
@@ -380,7 +289,7 @@
             width: 100%;
             border-radius: 5px;
             position: relative;
-            font-size: 15px;
+            font-size: 14px;
             .icon_container {
               @include flexDisplay(center, center, row);
               border-radius: 50%;
@@ -392,6 +301,150 @@
           }
         }
       }
+    }
+  }
+}
+
+.app_content {
+  width: 100%;
+  @include flexDisplay(flex-start, flex-start, row);
+}
+
+.top_bar {
+  background-color: var(--sidebar-background-color);
+  height: 40px;
+  border-bottom: 1px solid var(--sidebar-border);
+  color: var(--sidebar-color);
+}
+
+.notes_container {
+  width: 100%;
+  h2 {
+    font-size: 20px;
+    // border-bottom: 1px solid var(--border);
+    background-color: var(--background);
+    // background-color: var(--componentBackground);
+    color: var(--color);
+    padding: 6px 12px;
+  }
+  .back {
+    @include flexDisplay(flex-start, center, row);
+    cursor: pointer;
+    margin-bottom: 20px;
+    color: var(--color);
+    svg {
+      font-size: 22px;
+    }
+  }
+  .message_container {
+    width: 100%;
+    @include flexDisplay(center, center, column);
+    img {
+      width: 140px;
+    }
+  }
+  .note_list_container {
+    top: 0;
+    width: 100%;
+    .note_search_bar_container {
+      @include flexDisplay(space-between, center, row);
+      gap: 30px;
+      width: 100%;
+      .search_box {
+        width: 500px;
+      }
+    }
+    ul {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      width: 100%;
+      gap: 20px;
+      padding-top: 30px;
+      li {
+        border: 1px solid var(--border);
+        border-radius: 5px;
+        padding: 15px;
+        height: 220px;
+        position: relative;
+        padding-bottom: 8px;
+        transition: ease-in-out 0.2s;
+        background-color: var(--componentBackground);
+        a {
+          @include flexDisplay(space-between, flex-start, column);
+          height: 100%;
+        }
+        &:hover {
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.11);
+          .more {
+            background-color: var(--componentBackground);
+            border: 1px solid var(--border);
+          }
+        }
+        .more {
+          position: absolute;
+          right: 5px;
+          top: -5px;
+        }
+        h4 {
+          color: var(--lightColor);
+          font-size: 15px;
+          height: 40px;
+          max-height: 40px;
+          width: 100%;
+        }
+        .text {
+          color: var(--lighterColor);
+          font-size: 13px;
+          line-height: 1.6;
+          margin: 8px 0px;
+          border-top: 1px solid var(--border);
+          border-bottom: 1px solid var(--border);
+          padding: 5px 0px;
+          height: 80px;
+          max-height: 80px;
+          width: 100%;
+          max-width: 100%;
+        }
+        .time_details {
+          @include flexDisplay(space-between, center, row);
+          width: 100%;
+          padding-bottom: 10px;
+          p {
+            font-size: 10px;
+            font-weight: 500;
+            color: var(--lighterColor);
+            div {
+              color: var(--color);
+              font-size: 11px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .note_fields {
+    padding: 10px 10px;
+    width: 100%;
+    input {
+      display: block;
+      width: 100%;
+      font-size: 20px;
+      border: none;
+      outline: none;
+      font-weight: 600;
+      background-color: var(--background);
+    }
+    textarea {
+      display: block;
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-top: 20px;
+      height: calc(100vh - 200px);
+      background-color: var(--background);
+
     }
   }
 }
@@ -412,7 +465,7 @@
   padding-top: 30px;
   .note_loader_content {
     @include flexDisplay(flex-start, flex-start, column);
-    border: 1px solid gainsboro;
+    border: 1px solid var(--border);
     border-radius: 5px;
     padding: 15px;
     height: 160px;
@@ -420,4 +473,164 @@
     padding-bottom: 8px;
     transition: ease-in-out 0.2s;
   }
+}
+
+.note_content {
+  padding: 10px 20px;
+}
+
+.home {
+  width: 100%;
+  padding: 10px 20px;
+  min-height: calc(100vh - 40px);
+
+  .home_content{
+    @include flexDisplay(space-between, flex-start, row);
+    gap: 20px;
+  }
+  .home_activity{
+    width: 100%;
+    background-color: var(--componentBackground);
+    height: 100vh;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    // box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.052);
+
+    ul {
+      li {
+        @include flexDisplay(space-between, flex-start, row);
+        padding: 10px;
+        border-bottom: 1px solid var(--border);
+        &:nth-child(1) {
+          border-top: 1px solid var(--border);
+        }
+        h5 {
+          font-size: 13px;
+          margin-bottom: 5px;
+          color: var(--lightColor);
+        }
+        p {
+          font-size: 13px;
+          color: var(--lighterColor);
+        }
+        .action_container {
+          @include flexDisplay(space-between, center, row);
+          svg {
+            font-size: 14px;
+            color: var(--lightColor);
+          }
+        }
+      }
+    }
+  }
+
+  .shortcut {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background-color: var(--componentBackground);
+    // box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.052);
+
+    &.shortcut_content {
+      margin-bottom: 20px;
+    }
+
+    &.recent_notifications {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+
+      ul {
+        li {
+          @include flexDisplay(space-between, flex-start, row);
+          padding: 10px;
+          border-bottom: 1px solid var(--border);
+          &:nth-child(1) {
+            border-top: 1px solid var(--border);
+          }
+          h5 {
+            font-size: 13px;
+            margin-bottom: 5px;
+            color: var(--lightColor);
+          }
+          p {
+            font-size: 13px;
+            color: var(--lighterColor);
+          }
+          .action_container {
+            @include flexDisplay(space-between, center, row);
+            svg {
+              font-size: 14px;
+              color: var(--lightColor);
+            }
+          }
+        }
+      }
+    }
+  }
+  h4 {
+    width: 100%;
+    background-color: var(--componentBackground);
+    padding: 15px 10px;
+    border-bottom: 1px solid var(--border);
+    color: var(--color);
+    font-size: 15px;
+    @include flexDisplay(space-between, center, row);
+    .title {
+      @include flexDisplay(flex-start, center, row);
+      font-size: 18px;
+      svg {
+        font-size: 22px;
+        margin-right: 10px;
+      }
+    }
+  }
+  .shortcut_container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+    padding: 2px;
+    .short_cut_card {
+      &:nth-child(1) {
+        .icon_container {
+          background-color: black;
+        }
+      }
+      @include flexDisplay(flex-start, center, column);
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+      width: max-content;
+      padding: 10px;
+      border-radius: 15px;
+      &:hover {
+        box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.258);
+      }
+      .icon_container {
+        width: 50px;
+        height: 50px;
+        border-radius: 15px;
+        background-color: rgb(55,71,79);
+        @include flexDisplay(center, center, column);
+        color: white;
+        margin-bottom: 5px;
+        transition: ease-in-out 0.3s;
+        svg {
+          font-size: 30px;
+        }
+      }
+      p {
+        font-size: 11px;
+        font-weight: 500;
+        width: 90px;
+      }
+    }
+  }
+}
+
+.home_short {
+  width: 100%;
+  max-width: 500px;
 }
