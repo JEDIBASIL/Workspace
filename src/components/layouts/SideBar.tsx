@@ -1,4 +1,5 @@
-import { TfiHome, TfiNotepad, TfiSettings, TfiUnlink, TfiHeart, TfiPowerOff, TfiBlackboard } from "react-icons/tfi"
+import { FcHome, FcFile, FcSettings, FcLink, FcLike, FcCamcorderPro, FcSurvey } from "react-icons/fc"
+
 import { HiOutlineUsers } from "react-icons/hi"
 import SideBarList from "./SideBarList";
 import { useLocation, Link as A } from "react-router-dom";
@@ -15,9 +16,9 @@ const SideBar: React.FC<SideBarProps> = ({ visible }) => {
     return (
         <>
             <nav className="side_bar">
-            <A className="logo" to={"/"}>
+                <A className="logo" to={"/"}>
                     <GiBirdHouse />
-                    TweSpace
+                    <span>TweSpace</span>
                 </A>
                 <Accordion unstyled>
                     {
@@ -28,10 +29,10 @@ const SideBar: React.FC<SideBarProps> = ({ visible }) => {
                             <menu>
                                 <ul>
                                     <Accordion.Item value="home">
-                                        <SideBarList className={location.pathname !== "/app" ? "inactive" : "active"} path={"/app"} icon={<TfiHome />} name={"Home"} />
+                                        <SideBarList className={location.pathname !== "/app" ? "inactive" : "active"} path={"/app"} icon={<FcHome />} name={"Home"} />
                                     </Accordion.Item>
                                     <Accordion.Item value="projects">
-                                        <SideBarList path={"/app/task"} icon={<TfiBlackboard />} name={"Projects"} />
+                                        <SideBarList path={"/app/projects"} icon={<FcSurvey />} name={"Projects"} />
                                     </Accordion.Item>
 
                                     <Accordion.Item value="team">
@@ -39,11 +40,11 @@ const SideBar: React.FC<SideBarProps> = ({ visible }) => {
                                     </Accordion.Item>
 
                                     <Accordion.Item value="notes">
-                                        <SideBarList isMultiple className={(location.pathname.includes("note") || location.pathname.includes("favorite")) ? "active" : "inactive"} path={"/app/notes"} icon={<TfiNotepad />} name={"Notes"} />
+                                        <SideBarList isMultiple className={(location.pathname.includes("note") || location.pathname.includes("favorite")) ? "active" : "inactive"} path={"/app/notes"} icon={<FcFile />} name={"Notes"} />
                                         <Accordion.Panel>
                                             <div className="panel_container">
-                                                <SubSideBarLink path={"/app/favorite"} icon={<TfiHeart />} name={"Favorites"} />
-                                                <SubSideBarLink path={"/app/shared-note"} icon={<TfiUnlink />} name={"Shared notes"} />
+                                                <SubSideBarLink path={"/app/favorite"} icon={<FcLike />} name={"Favorites"} />
+                                                <SubSideBarLink path={"/app/shared-note"} icon={<FcLink />} name={"Shared notes"} />
                                             </div>
                                         </Accordion.Panel>
                                     </Accordion.Item>
@@ -52,10 +53,10 @@ const SideBar: React.FC<SideBarProps> = ({ visible }) => {
 
                                 <ul>
                                     <Accordion.Item value="settings">
-                                        <SideBarList path={"/app/settings"} icon={<TfiSettings />} name={"Settings"} />
+                                        <SideBarList path={"/app/settings"} icon={<FcSettings />} name={"Settings"} />
                                     </Accordion.Item>
                                     <Accordion.Item value="logout">
-                                        <SideBarList path={"/sign-in"} icon={<TfiPowerOff />} name={"Logout"} />
+                                        <SideBarList path={"/sign-in"} icon={<FcCamcorderPro />} name={"Logout"} />
                                     </Accordion.Item>
                                 </ul>
                             </menu>

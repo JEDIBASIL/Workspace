@@ -3,7 +3,6 @@ import { v4 as uuidv4 } from 'uuid';
 import {
   TfiTrash,
   TfiMore,
-  TfiSearch,
   TfiPlus,
   TfiHeart,
 } from "react-icons/tfi";
@@ -16,6 +15,7 @@ import noFavoriteImg from "../../assets/svgs/In love-cuate.svg"
 import NoteLoader from "../loaders/NoteLoader";
 import { dateConverter } from "../../utils";
 import Message from "./Message";
+import { FcEmptyTrash, FcLike, FcPlus, FcSearch } from "react-icons/fc";
 
 
 
@@ -49,7 +49,7 @@ const NoteList: React.FC<NoteContextType> = ({ notes, noteDispatcher }) => {
                 <div className="search_box">
                   {" "}
                   <TextInput
-                    icon={<TfiSearch />}
+                    icon={<FcSearch />}
                     width={"100%"}
                     placeholder="Search notes"
                     onChange={onchange}
@@ -58,7 +58,7 @@ const NoteList: React.FC<NoteContextType> = ({ notes, noteDispatcher }) => {
                   
                   />
                 </div>
-                <div>
+                <div className="add_btn_container">
                   <A onClick={() =>
                     noteDispatcher({
                       type: "ADD_NOTE",
@@ -76,14 +76,16 @@ const NoteList: React.FC<NoteContextType> = ({ notes, noteDispatcher }) => {
                     <Button
                      radius={5}
                       leftIcon={
-                        <TfiPlus style={{ fontSize: "22px", fill: "white" }} />
+                        <FcPlus style={{ fontSize: "22px", fill: "white" }} />
                       }
+                      color={"green"}
+                      variant={"light"}
                     >
                       Add Note
                     </Button>
                   </A>
-                  <Button radius={5} ml={"10px"} color={"red"}>
-                    <TfiTrash style={{ fontSize: "18px", fill: "white" }} />
+                  <Button variant={"light"} radius={5} ml={"10px"} color={"red"}>
+                    <TfiTrash style={{ fontSize: "18px", fill: "crimson" }} />
                   </Button>
                 </div>
               </div>
@@ -147,10 +149,10 @@ const NoteList: React.FC<NoteContextType> = ({ notes, noteDispatcher }) => {
                           </Menu.Target>
 
                           <Menu.Dropdown>
-                            <Menu.Item onClick={() => noteDispatcher({ type: "DELETE_NOTE", id: note.id })} icon={<TfiTrash />}>
+                            <Menu.Item onClick={() => noteDispatcher({ type: "DELETE_NOTE", id: note.id })} icon={<FcEmptyTrash />}>
                               <p style={{ fontWeight: "500" }}>Delete </p>
                             </Menu.Item>
-                            <Menu.Item onClick={() => noteDispatcher({ type: "TOGGLE_FAVORITE", id: note.id })} icon={<TfiHeart />}>
+                            <Menu.Item onClick={() => noteDispatcher({ type: "TOGGLE_FAVORITE", id: note.id })} icon={<FcLike />}>
                               <p style={{ fontWeight: "500" }}>{note.favorite ? "Remove from favorite" : "Add to favorite"}</p>
                             </Menu.Item>
                           </Menu.Dropdown>

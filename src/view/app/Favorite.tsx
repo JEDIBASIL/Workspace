@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { NoteList, PageHeader } from "../../components";
 import { NoteContext } from "../../contexts";
+import { FcLike } from "react-icons/fc";
 
 const Favorite: React.FC = () => {
 
@@ -12,9 +13,9 @@ const Favorite: React.FC = () => {
 
   return (
     <div>
-      <PageHeader name={"Favorite"} />
+      <PageHeader icon={<FcLike />} name={"Favorite"} />
       <NoteList
-        notes={notes?.filter(note=> note?.favorite)}
+        notes={notes?.filter(note => note?.favorite)}
         noteDispatcher={noteDispatcher}
       />
     </div>

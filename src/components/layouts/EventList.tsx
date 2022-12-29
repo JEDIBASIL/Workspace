@@ -1,4 +1,5 @@
 import { Menu } from "@mantine/core";
+import { FcCancel, FcOvertime } from "react-icons/fc";
 import { TfiCalendar, TfiClose } from "react-icons/tfi";
 
 interface EventListProps {
@@ -15,8 +16,8 @@ const EventList: React.FC<EventListProps> = ({ time, event }) => {
                     <p role={"para"}>{time}</p>
                 </div>
                 <div className="action_container">
-                    <button className="more"><TfiCalendar /></button>
-                    <button className="more"><TfiClose /></button>
+                    <button className="more"><FcOvertime /></button>
+                     <button className="more"><FcCancel /></button>
                 </div>
             </li></>
     );

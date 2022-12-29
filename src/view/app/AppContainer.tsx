@@ -10,8 +10,8 @@ const AppContainer: React.FC = () => {
     }, [])
     return (
         <>
-            <MantineProvider theme={{ colorScheme: 'dark' }} withGlobalStyles withNormalizeCSS>
-                <div data-theme="dark" className="app_container">
+            <MantineProvider theme={{ colorScheme: 'light' }} withGlobalStyles withNormalizeCSS>
+                <div data-theme="light" className="app_container">
                     <div className="app_content">
                         <SideBar visible={loading} />
                         <div className="notes_container">
