@@ -1,5 +1,6 @@
 # Note app built with React and TypeScript
 
-![Alt workspace app](https://assets.digitalocean.com/articles/alligator/boo.svg "a title")
+![Alt workspace app](/public/images/Screenshot%202022-12-29%20at%2016.02.00.png)
+![Alt workspace app](/public/images/Screenshot%202022-12-29%20at%2016.02.17.png)
 
 
