@@ -10,7 +10,7 @@
 }
 
 :root {
-  --background: rgb(251,251,250);
+  --background: rgb(255, 255, 255);
   --componentBackground: white;
   --color: black;
   --lightColor: rgb(77, 77, 77);
@@ -23,28 +23,37 @@
   --border: gainsboro;
   --sidebar-background-color: white;
   --sidebar-color: rgb(74, 74, 74);
-  --sidebar-backgroundcolor-active: rgb(208, 208, 208);
+  --sidebar-backgroundcolor-active: rgb(0, 100, 231);
   --sidebar-color-active: white;
   --sidebar-color-hover: rgb(235, 235, 235);
   --sidebar-border: whitesmoke;
-  --sidebar-logo-backgroundcolor: linear-gradient(50deg, rgb(9, 9, 9), rgb(140, 151, 157));
-  --sidebar-logo-svg-color:black;
+  --sidebar-logo-backgroundcolor: linear-gradient(
+    50deg,
+    rgb(9, 9, 9),
+    rgb(140, 151, 157)
+  );
+  --sidebar-logo-svg-color: black;
 }
 
 [data-theme=dark] {
-  --background: rgb(25,24,26);
-  --componentBackground: rgb(37,38,43);
+  --background: rgb(25, 24, 26);
+  --componentBackground: rgb(37, 38, 43);
   --color: rgb(255, 255, 255);
   --lightColor: rgb(228, 228, 228);
   --lighterColor: rgb(196, 196, 196);
   --border: rgb(54, 57, 61);
-  --sidebar-background-color: rgb(37,38,43);
+  --componentBackground: rgb(25, 24, 26);
+  --sidebar-background-color: rgb(25, 24, 26);
   --sidebar-color: rgb(234, 234, 234);
-  --sidebar-color-active: rgb(46, 48, 53);
+  --sidebar-color-active: rgb(255, 255, 255);
   --sidebar-color-hover: rgb(46, 48, 53);
   --sidebar-border: rgb(180, 180, 180);
-  --sidebar-logo-backgroundcolor: linear-gradient(50deg, white, rgb(140, 151, 157));
-  --sidebar-logo-svg-color:white;
+  --sidebar-logo-backgroundcolor: linear-gradient(
+    50deg,
+    white,
+    rgb(140, 151, 157)
+  );
+  --sidebar-logo-svg-color: white;
 }
 
 .more {
@@ -149,13 +158,13 @@
   color: var(--color);
 }
 .app_container .side_bar {
-  width: 220px;
-  min-width: 220px;
+  width: 250px;
+  min-width: 250px;
   height: 100vh;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  padding: 10px 10px;
+  padding: 10px 0px;
   color: var(--sidebar-color);
   background-color: var(--sidebar-background-color);
   border-right: 1px solid var(--border);
@@ -192,12 +201,8 @@
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  border-radius: 8px;
   padding: 6px 12px;
   height: 100%;
-}
-.app_container .side_bar .mantine-Accordion-item .mantine-Accordion-control:hover {
-  background-color: var(--sidebar-color-hover);
 }
 .app_container .side_bar .mantine-Accordion-item .mantine-Accordion-control a {
   padding: 5px 12px;
@@ -259,15 +264,14 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: row;
-  font-weight: 500;
+  font-weight: 600;
   width: 100%;
   position: relative;
   font-size: 12px;
 }
 .app_container .side_bar menu ul li a:not(.icon_container a).active:not(.inactive) {
-  background-color: var(--sidebar-color-active);
-  border-radius: 8px;
-  background-color: var(--sidebar-backgroundcolor-active);
+  background-color: var(--sidebar-backgroundcolor-active) !important;
+  color: var(--sidebar-color-active);
 }
 .app_container .side_bar menu ul li a:not(.icon_container a) .icon_container {
   display: flex;
@@ -285,9 +289,9 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: row;
-  font-weight: 500;
+  font-weight: 600;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 0px;
   position: relative;
   font-size: 14px;
 }
@@ -322,10 +326,17 @@
   width: 100%;
 }
 .notes_container h2 {
-  font-size: 20px;
-  background-color: var(--background);
-  color: var(--color);
-  padding: 6px 12px;
+  font-size: 25px;
+  padding: 8px 12px;
+  color: var(--lightColor);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+.notes_container h2 svg {
+  margin-right: 5px;
+  font-size: 30px;
 }
 .notes_container .back {
   display: flex;
@@ -486,6 +497,7 @@
   align-items: flex-start;
   flex-direction: column;
   border: 1px solid var(--border);
+  background-color: var(--componentBackground);
   border-radius: 5px;
   padding: 15px;
   height: 160px;
@@ -508,15 +520,17 @@
   justify-content: space-between;
   align-items: flex-start;
   flex-direction: row;
-  gap: 20px;
+  gap: 30px;
 }
 .home .home_activity {
   width: 100%;
   background-color: var(--componentBackground);
   height: 100vh;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  overflow: hidden;
+  border-radius: 15px;
+  transform: translateY(-50px);
+}
+.home .home_activity ul {
+  background-color: var(--background);
 }
 .home .home_activity ul li {
   display: flex;
@@ -525,9 +539,17 @@
   flex-direction: row;
   padding: 10px;
   border-bottom: 1px solid var(--border);
+  background-color: var(--componentBackground);
+  transition: 0.2s ease-in-out;
+}
+.home .home_activity ul li:hover {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.11);
+}
+.home .home_activity ul li:hover .more {
+  visibility: visible;
 }
 .home .home_activity ul li:nth-child(1) {
-  border-top: 1px solid var(--border);
+  border-top: none;
 }
 .home .home_activity ul li h5 {
   font-size: 13px;
@@ -538,29 +560,19 @@
   font-size: 13px;
   color: var(--lighterColor);
 }
-.home .home_activity ul li .action_container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-}
-.home .home_activity ul li .action_container svg {
-  font-size: 14px;
-  color: var(--lightColor);
+.home .home_activity ul li .more {
+  visibility: hidden;
 }
 .home .shortcut {
   border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  background-color: var(--componentBackground);
 }
 .home .shortcut.shortcut_content {
   margin-bottom: 20px;
 }
 .home .shortcut.recent_notifications {
   width: 100%;
-  border: 1px solid var(--border);
-  border-radius: 10px;
+  background-color: var(--componentBackground);
+  border-radius: 15px;
 }
 .home .shortcut.recent_notifications ul li {
   display: flex;
@@ -569,6 +581,13 @@
   flex-direction: row;
   padding: 10px;
   border-bottom: 1px solid var(--border);
+  transition: 0.3s ease-in-out;
+}
+.home .shortcut.recent_notifications ul li:hover {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.11);
+}
+.home .shortcut.recent_notifications ul li:hover .action_container {
+  visibility: visible;
 }
 .home .shortcut.recent_notifications ul li:nth-child(1) {
   border-top: 1px solid var(--border);
@@ -587,6 +606,7 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+  visibility: hidden;
 }
 .home .shortcut.recent_notifications ul li .action_container svg {
   font-size: 14px;
@@ -612,7 +632,7 @@
   font-size: 18px;
 }
 .home h4 .title svg {
-  font-size: 22px;
+  font-size: 28px;
   margin-right: 10px;
 }
 .home .shortcut_container {
@@ -623,6 +643,7 @@
   padding: 2px;
 }
 .home .shortcut_container .short_cut_card {
+  background-color: var(--componentBackground);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -638,9 +659,6 @@
 }
 .home .shortcut_container .short_cut_card:nth-child(1) .icon_container {
   background-color: black;
-}
-.home .shortcut_container .short_cut_card:hover {
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.258);
 }
 .home .shortcut_container .short_cut_card .icon_container {
   width: 50px;
@@ -667,4 +685,96 @@
 .home_short {
   width: 100%;
   max-width: 500px;
+}
+
+.projects {
+  padding: 10px 20px;
+}
+.projects .projects_progress_container {
+  gap: 10px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+.projects .projects_progress_container .card {
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+.projects .projects_progress_container .card p {
+  font-weight: 500;
+  color: var(--lighterColor);
+  font-size: 14px;
+}
+.projects .projects_progress_container .card h1 {
+  font-size: 16px;
+  margin-right: 10px;
+}
+.projects .projects_progress_container .card .card_details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  color: var(--lightColor);
+}
+.projects .projects_progress_container .card .card_details .icon_container {
+  background-color: steelblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  display: none;
+  border-radius: 10px;
+  color: white;
+  width: 50px;
+  height: 50px;
+  font-size: 35px;
+}
+.projects .projects_container {
+  margin-top: 50px;
+}
+.projects .projects_container ul {
+  background-color: var(--background);
+}
+.projects .projects_container ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  padding: 10px;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--componentBackground);
+  transition: 0.2s ease-in-out;
+}
+.projects .projects_container ul li:hover {
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.11);
+}
+.projects .projects_container ul li:hover .more {
+  visibility: visible;
+}
+.projects .projects_container ul li:nth-child(1) {
+  border-top: none;
+}
+.projects .projects_container ul li h5 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: var(--lightColor);
+}
+.projects .projects_container ul li p {
+  font-size: 13px;
+  color: var(--lighterColor);
+}
+.projects .projects_container ul li .more {
+  visibility: hidden;
 }/*# sourceMappingURL=style.css.map */

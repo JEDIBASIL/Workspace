@@ -10,7 +10,7 @@
 }
 
 :root {
-  --background: rgb(251,251,250);
+  --background: rgb(255, 255, 255);
   --componentBackground: white;
   --color: black;
   --lightColor: rgb(77, 77, 77);
@@ -24,30 +24,45 @@
 
   --sidebar-background-color: white;
   --sidebar-color: rgb(74, 74, 74);
-  --sidebar-backgroundcolor-active: rgb(208, 208, 208);
+  --sidebar-backgroundcolor-active: rgb(0, 100, 231);
   --sidebar-color-active: white;
 
   --sidebar-color-hover: rgb(235, 235, 235);
   --sidebar-border: whitesmoke;
-  --sidebar-logo-backgroundcolor: linear-gradient(50deg, rgb(9, 9, 9), rgb(140, 151, 157));
-  --sidebar-logo-svg-color:black;
+  --sidebar-logo-backgroundcolor: linear-gradient(
+    50deg,
+    rgb(9, 9, 9),
+    rgb(140, 151, 157)
+  );
+  --sidebar-logo-svg-color: black;
+
+  // --sidebar-background-color: rgb(34, 38, 43);
+  // --sidebar-color: rgb(214, 214, 214);
+  // --sidebar-logo-backgroundcolor: linear-gradient( 50deg,white, rgb(140, 151, 157));
+  // --sidebar-logo-svg-color: white;
 }
 
-[data-theme="dark"]{
-  --background: rgb(25,24,26);
-  --componentBackground: rgb(37,38,43);
+[data-theme="dark"] {
+  --background: rgb(25, 24, 26);
+  --componentBackground: rgb(37, 38, 43);
   --color: rgb(255, 255, 255);
   --lightColor: rgb(228, 228, 228);
   --lighterColor: rgb(196, 196, 196);
   --border: rgb(54, 57, 61);
 
-    --sidebar-background-color: rgb(37,38,43);
+  --componentBackground: rgb(25, 24, 26);
+
+  --sidebar-background-color: rgb(25, 24, 26);
   --sidebar-color: rgb(234, 234, 234);
-  --sidebar-color-active: rgb(46, 48, 53);
+  --sidebar-color-active: rgb(255, 255, 255);
   --sidebar-color-hover: rgb(46, 48, 53);
   --sidebar-border: rgb(180, 180, 180);
-  --sidebar-logo-backgroundcolor: linear-gradient(50deg, white, rgb(140, 151, 157));
-  --sidebar-logo-svg-color:white;
+  --sidebar-logo-backgroundcolor: linear-gradient(
+    50deg,
+    white,
+    rgb(140, 151, 157)
+  );
+  --sidebar-logo-svg-color: white;
 }
 
 @mixin flexDisplay($justify, $align, $direction) {
@@ -154,12 +169,12 @@
   background-color: var(--background);
   color: var(--color);
   .side_bar {
-    width: 220px;
-    min-width: 220px;
+    width: 250px;
+    min-width: 250px;
     height: 100vh;
     position: sticky;
     top: 0;
-    padding: 10px 10px;
+    padding: 10px 0px;
     color: var(--sidebar-color);
     background-color: var(--sidebar-background-color);
     border-right: 1px solid var(--border);
@@ -192,12 +207,11 @@
         display: flex;
         flex-direction: row-reverse;
         align-items: center;
-        border-radius: 8px;
         padding: 6px 12px;
         height: 100%;
-        &:hover {
-          background-color: var(--sidebar-color-hover);
-        }
+        // &:hover {
+        //   background-color: var(--sidebar-color-hover);
+        // }
         a {
           padding: 5px 12px;
           border: none !important;
@@ -264,14 +278,15 @@
         li {
           a:not(.icon_container a) {
             @include flexDisplay(flex-start, center, row);
-            font-weight: 500;
+            font-weight: 600;
             width: 100%;
             position: relative;
             font-size: 12px;
             &.active:not(.inactive) {
-              background-color: var(--sidebar-color-active);
-              border-radius: 8px;
-              background-color: var(--sidebar-backgroundcolor-active);
+              background-color: var(
+                --sidebar-backgroundcolor-active
+              ) !important;
+              color: var(--sidebar-color-active);
             }
             .icon_container {
               @include flexDisplay(center, center, row);
@@ -285,9 +300,9 @@
 
           .links_container {
             @include flexDisplay(flex-start, center, row);
-            font-weight: 500;
+            font-weight: 600;
             width: 100%;
-            border-radius: 5px;
+            border-radius: 0px;
             position: relative;
             font-size: 14px;
             .icon_container {
@@ -320,12 +335,14 @@
 .notes_container {
   width: 100%;
   h2 {
-    font-size: 20px;
-    // border-bottom: 1px solid var(--border);
-    background-color: var(--background);
-    // background-color: var(--componentBackground);
-    color: var(--color);
-    padding: 6px 12px;
+    font-size: 25px;
+    padding: 8px 12px;
+    color: var(--lightColor);
+    @include flexDisplay(flex-start, center, row);
+    svg {
+      margin-right: 5px;
+      font-size: 30px;
+    }
   }
   .back {
     @include flexDisplay(flex-start, center, row);
@@ -444,7 +461,6 @@
       margin-top: 20px;
       height: calc(100vh - 200px);
       background-color: var(--background);
-
     }
   }
 }
@@ -466,6 +482,7 @@
   .note_loader_content {
     @include flexDisplay(flex-start, flex-start, column);
     border: 1px solid var(--border);
+    background-color: var(--componentBackground);
     border-radius: 5px;
     padding: 15px;
     height: 160px;
@@ -484,26 +501,33 @@
   padding: 10px 20px;
   min-height: calc(100vh - 40px);
 
-  .home_content{
+  .home_content {
     @include flexDisplay(space-between, flex-start, row);
-    gap: 20px;
+    gap: 30px;
   }
-  .home_activity{
+  .home_activity {
     width: 100%;
     background-color: var(--componentBackground);
     height: 100vh;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    // box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.052);
-
+    border-radius: 15px;
+    transform: translateY(-50px);
     ul {
+      background-color: var(--background);
+
       li {
         @include flexDisplay(space-between, flex-start, row);
         padding: 10px;
         border-bottom: 1px solid var(--border);
+        background-color: var(--componentBackground);
+        transition: 0.2s ease-in-out;
+        &:hover {
+          box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.11);
+          .more {
+            visibility: visible;
+          }
+        }
         &:nth-child(1) {
-          border-top: 1px solid var(--border);
+          border-top: none;
         }
         h5 {
           font-size: 13px;
@@ -514,12 +538,8 @@
           font-size: 13px;
           color: var(--lighterColor);
         }
-        .action_container {
-          @include flexDisplay(space-between, center, row);
-          svg {
-            font-size: 14px;
-            color: var(--lightColor);
-          }
+        .more {
+          visibility: hidden;
         }
       }
     }
@@ -527,10 +547,6 @@
 
   .shortcut {
     border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    background-color: var(--componentBackground);
-    // box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.052);
 
     &.shortcut_content {
       margin-bottom: 20px;
@@ -538,14 +554,20 @@
 
     &.recent_notifications {
       width: 100%;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-
+      background-color: var(--componentBackground);
+      border-radius: 15px;
       ul {
         li {
           @include flexDisplay(space-between, flex-start, row);
           padding: 10px;
           border-bottom: 1px solid var(--border);
+          transition: 0.3s ease-in-out;
+          &:hover {
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.11);
+            .action_container {
+              visibility: visible;
+            }
+          }
           &:nth-child(1) {
             border-top: 1px solid var(--border);
           }
@@ -560,6 +582,7 @@
           }
           .action_container {
             @include flexDisplay(space-between, center, row);
+            visibility: hidden;
             svg {
               font-size: 14px;
               color: var(--lightColor);
@@ -581,7 +604,7 @@
       @include flexDisplay(flex-start, center, row);
       font-size: 18px;
       svg {
-        font-size: 22px;
+        font-size: 28px;
         margin-right: 10px;
       }
     }
@@ -598,6 +621,7 @@
           background-color: black;
         }
       }
+      background-color: var(--componentBackground);
       @include flexDisplay(flex-start, center, column);
       text-align: center;
       cursor: pointer;
@@ -605,14 +629,11 @@
       width: max-content;
       padding: 10px;
       border-radius: 15px;
-      &:hover {
-        box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.258);
-      }
       .icon_container {
         width: 50px;
         height: 50px;
         border-radius: 15px;
-        background-color: rgb(55,71,79);
+        background-color: rgb(55, 71, 79);
         @include flexDisplay(center, center, column);
         color: white;
         margin-bottom: 5px;
@@ -633,4 +654,79 @@
 .home_short {
   width: 100%;
   max-width: 500px;
+}
+
+.projects {
+  padding: 10px 20px;
+  .projects_progress_container {
+    gap: 10px;
+    width: max-content;
+    @include flexDisplay(flex-start, center, row);
+    .card {
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      width: max-content;
+      padding: 10px;
+      @include flexDisplay(flex-start, center, row-reverse);
+      p {
+        font-weight: 500;
+        color: var(--lighterColor);
+        font-size: 14px;
+      }
+      h1 {
+        font-size: 16px;
+        margin-right: 10px;
+      }
+      .card_details {
+        @include flexDisplay(space-between, center, row);
+        color: var(--lightColor);
+        .icon_container {
+          background-color: steelblue;
+          @include flexDisplay(center, center, row);
+          display: none;
+          border-radius: 10px;
+          color: white;
+          width: 50px;
+          height: 50px;
+          font-size: 35px;
+        }
+      }
+    }
+  }
+
+  .projects_container {
+    margin-top: 50px;
+    ul {
+      background-color: var(--background);
+
+      li {
+        @include flexDisplay(space-between, flex-start, row);
+        padding: 10px;
+        border-bottom: 1px solid var(--border);
+        background-color: var(--componentBackground);
+        transition: 0.2s ease-in-out;
+        &:hover {
+          box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.11);
+          .more {
+            visibility: visible;
+          }
+        }
+        &:nth-child(1) {
+          border-top: none;
+        }
+        h5 {
+          font-size: 18px;
+          margin-bottom: 5px;
+          color: var(--lightColor);
+        }
+        p {
+          font-size: 13px;
+          color: var(--lighterColor);
+        }
+        .more {
+          visibility: hidden;
+        }
+      }
+    }
+  }
 }
