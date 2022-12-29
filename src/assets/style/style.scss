@@ -167,6 +167,8 @@
 
 .app_container {
   background-color: var(--background);
+  height: 100%;
+  min-height: 100vh;
   color: var(--color);
   .side_bar {
     width: 250px;
@@ -174,20 +176,21 @@
     height: 100vh;
     position: sticky;
     top: 0;
-    padding: 10px 0px;
+    padding: 0px 0px;
     color: var(--sidebar-color);
     background-color: var(--sidebar-background-color);
-    border-right: 1px solid var(--border);
+    z-index: 5;
     .logo {
       font-size: 20px;
       @include flexDisplay(flex-start, center, row);
+      padding: 12px 10px;
       margin-bottom: 10px;
-      padding-left: 10px;
       background: linear-gradient(50deg, white, rgb(140, 151, 157));
       background: var(--sidebar-logo-backgroundcolor);
       color: transparent;
       -webkit-background-clip: text;
       font-weight: 500;
+      border-bottom: 1px solid var(--border);
       svg {
         fill: var(--sidebar-logo-svg-color);
         font-size: 28px;
@@ -339,6 +342,11 @@
     padding: 8px 12px;
     color: var(--lightColor);
     @include flexDisplay(flex-start, center, row);
+    border-bottom: 1px solid var(--border);
+    background-color: var(--background);
+    position: sticky;
+    top: 0;
+    z-index: 4;
     svg {
       margin-right: 5px;
       font-size: 30px;
@@ -369,6 +377,9 @@
       width: 100%;
       .search_box {
         width: 500px;
+      }
+      .add_btn_container {
+        @include flexDisplay(center, center, row);
       }
     }
     ul {
@@ -508,9 +519,12 @@
   .home_activity {
     width: 100%;
     background-color: var(--componentBackground);
-    height: 100vh;
-    border-radius: 15px;
-    transform: translateY(-50px);
+    height: calc(100vh - 70px);
+    position: sticky;
+    top: 70px;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    overflow: hidden;
     ul {
       background-color: var(--background);
 
@@ -546,8 +560,8 @@
   }
 
   .shortcut {
-    border-radius: 10px;
-
+    border-radius: 5px;
+    border: 1px solid var(--border);
     &.shortcut_content {
       margin-bottom: 20px;
     }
@@ -555,7 +569,9 @@
     &.recent_notifications {
       width: 100%;
       background-color: var(--componentBackground);
-      border-radius: 15px;
+      border-radius: 5px;
+      border: 1px solid var(--border);
+      overflow: hidden;
       ul {
         li {
           @include flexDisplay(space-between, flex-start, row);
@@ -612,7 +628,6 @@
   .shortcut_container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
     width: 100%;
     padding: 2px;
     .short_cut_card {
@@ -653,7 +668,7 @@
 
 .home_short {
   width: 100%;
-  max-width: 500px;
+  max-width: 450px;
 }
 
 .projects {
@@ -698,21 +713,20 @@
     margin-top: 50px;
     ul {
       background-color: var(--background);
-
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
       li {
         @include flexDisplay(space-between, flex-start, row);
         padding: 10px;
-        border-bottom: 1px solid var(--border);
+        border: 1px solid var(--border);
         background-color: var(--componentBackground);
+        border-radius: 5px;
         transition: 0.2s ease-in-out;
+        margin-top: 10px;
         &:hover {
-          box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.11);
           .more {
             visibility: visible;
           }
-        }
-        &:nth-child(1) {
-          border-top: none;
         }
         h5 {
           font-size: 18px;
@@ -727,6 +741,174 @@
           visibility: hidden;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .home {
+    .home_activity {
+      display: none;
+    }
+    .home_short {
+      width: 100%;
+      max-width: 800px;
+      margin: 0px auto;
+    }
+  }
+
+  .app_container {
+    .side_bar {
+      width: 100px;
+      min-width: 100px;
+      .logo {
+        padding: 0;
+        @include flexDisplay(center, center, row);
+        span {
+          display: none;
+        }
+        svg {
+          font-size: 32px;
+        }
+      }
+      .mantine-Accordion-item {
+        .mantine-Accordion-panel {
+          li {
+            a {
+              span {
+                display: none;
+              }
+              svg {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+
+      menu {
+        ul {
+          li {
+            a:not(.icon_container a) {
+              @include flexDisplay(center, center, row);
+              .icon_container {
+                @include flexDisplay(center, center, row);
+                svg {
+                  font-size: 22px;
+                }
+              }
+            }
+
+            .links_container {
+              @include flexDisplay(center, center, row);
+              span {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .app_content {
+    width: 100%;
+    @include flexDisplay(flex-start, flex-start, row);
+  }
+  .app_container {
+    .side_bar {
+      position: fixed;
+      transform: translateX(-100%);
+      transition: 0.2s ease-in-out;
+      width: 260px;
+      min-width: 260px;
+      .logo {
+        padding: 10px;
+        @include flexDisplay(flex-start, center, row);
+        span {
+          display: block;
+        }
+        svg {
+          font-size: 28px;
+        }
+      }
+
+      .mantine-Accordion-item {
+        .mantine-Accordion-panel {
+          li {
+            a {
+              span {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+
+      menu {
+        ul {
+          li {
+            a:not(.icon_container a) {
+              @include flexDisplay(flex-start, center, row);
+              .icon_container {
+                @include flexDisplay(center, center, row);
+                svg {
+                  font-size: 22px;
+                }
+              }
+            }
+
+            .links_container {
+              @include flexDisplay(flex-start, center, row);
+              span {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 891px) {
+  .note_content {
+    padding: 10px;
+  }
+
+  .notes_container {
+    .note_search_bar_container {
+      .search_box {
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+    ul {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .notes_container {
+    .note_search_bar_container {
+      .search_box {
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+    ul {
+      grid-template-columns: repeat(1, 1fr) !important;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .home {
+    .shortcut_container {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 }
